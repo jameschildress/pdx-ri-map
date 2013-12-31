@@ -1,0 +1,157 @@
+@import "compass";
+
+
+
+
+$list-width: 300px;
+$list-bg: #fff;
+$list-item-padding: 10px;
+$list-item-border: #ccc;
+$map-border: #888;
+$title-color: #777;
+$heading-color: #07c;
+$text-color: #666;
+$active-item-color: $heading-color;
+$active-heading-color: #fff;
+$active-text-color: #fff;
+$font: Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$header-bg: #eee;
+$max-mobile-width: 767px;
+
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: $list-bg;
+  font-family: $font;
+}
+
+h2 {
+  font-size: 15px;
+  text-transform: capitalize;
+  margin: 0 0 3px 0;
+  color: $heading-color;
+}
+
+
+
+
+
+#pdxri-map-wrapper {
+  position: fixed;
+  left:   $list-width;
+  right:  0;
+  top:    0;
+  bottom: 0;
+  background: #000;
+  border-left: 1px solid $map-border;
+  
+  @media (max-width: $max-mobile-width) {
+    display: none;
+  }
+}
+
+#pdxri-map {
+  height: 100%;
+  
+  .pdxri-list-item {
+    white-space: nowrap;
+  }
+}
+
+
+
+
+#pdxri-header {
+  padding: 5px $list-item-padding $list-item-padding $list-item-padding;
+  background: $header-bg;
+  
+  h1 {
+    color: $title-color;
+    font-size: 20px;
+    margin: 0;
+  }
+  
+  p {
+    color: $title-color;
+    font-size: 12px;
+    margin: 0;
+  }
+  
+  a {
+    text-decoration: none;
+    color: $title-color;
+    border-bottom: 1px dotted $title-color;
+    
+    &:hover {
+      color: $heading-color;
+      border-color: $heading-color;
+    }
+  }
+}
+
+
+
+
+#pdxri-info {
+  width: $list-width;
+  
+  @media (max-width: $max-mobile-width) {
+    width: auto;
+  }
+  
+  .pdxri-category {
+    
+    h2 {
+      display: block;
+      background: #f3f3f3;
+      margin: 0;
+      padding: 3px $list-item-padding;    
+      border-bottom: 1px solid $list-item-border;
+    }
+    
+    &.hidden {
+      display: none;
+    }
+  }
+  
+  .pdxri-list-item {
+    border-bottom: 1px solid $list-item-border;
+    padding: $list-item-padding;    
+  }
+}
+
+.pdxri-list-item {
+  cursor: pointer;
+  font-family: $font !important;
+    
+  p {
+    margin: 0 0 2px 0;
+    font-size: 13px;
+    font-weight: normal;
+    color: #888;
+  }
+  
+  time {
+    margin: 0;
+    font-size: 15px;
+    font-weight: normal;
+    color: $text-color;
+  }
+  
+  &.current {
+    background: $active-item-color;
+    
+    p, time {
+      color: $active-text-color;
+    }
+  }
+  
+  &.hidden {
+    display: none;
+  }
+}

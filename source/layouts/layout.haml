@@ -1,0 +1,28 @@
+!!!
+
+%html
+  %head
+  
+    %title PDX Restaurant Inspections
+  
+    %meta{ charset: 'utf-8' }/
+    
+    %meta{ content: "width=device-width, initial-scale=1.0", name: :viewport }/
+
+    %meta{ name: 'description'         , content: 'TODO' }/
+    %meta{ name: 'author'              , content: 'James Childress' }/
+    
+    %meta{ name: 'og:title'            , content: 'PDX Restaurant Inspections' }/
+    %meta{ name: 'og:description'      , content: 'TODO' }/
+    %meta{ name: 'og:image'            , content: 'TODO' }/
+    %meta{ name: 'contactdata:website' , content: 'https://github.com/jameschildress' }/
+    
+    = stylesheet_link_tag :all
+        
+  %body
+  
+    = yield
+    
+    = javascript_include_tag 'https://maps.googleapis.com/maps/api/js?sensor=false'
+    = javascript_include_tag :all
+    
