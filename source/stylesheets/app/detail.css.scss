@@ -1,0 +1,90 @@
+@import "compass";
+@import "variables";
+
+
+
+.pdxri-detail, .pdxri-violation {
+  padding: $pad;
+  border-bottom: 1px dashed $border;
+
+  p {
+    margin-left: $pad;
+  }  
+}
+
+
+
+.pdxri-detail {
+  @include grades;
+  background: #fff;
+
+  h2, h3 {
+    color: #333;
+  }
+  
+  h3 {
+    margin-top: $pad;
+  }
+}
+
+
+
+.pdxri-violation {
+  background: #fffff5;
+  
+  &:last-child {
+    border-bottom-style: solid;
+  }
+  
+  h4 {
+    color: #944;
+  }
+
+  p {
+    text-transform: lowercase;
+    color: #633;
+  }
+  
+}
+
+
+#pdxri-close {
+  $size:   20px;
+  float:   right;
+  display: block;
+  width:   $size;
+  height:  $size;
+  position: relative;
+  background: #fff;
+  
+  &:before, &:after {
+    content: " ";
+    width:  $size;
+    height: 1px;
+    display: block;
+    background: $link-color;
+    position: absolute;
+    left: 0;
+    top: 8px;
+  }
+  
+  &:before {
+    @include rotate(45deg);
+  }
+
+  &:after {
+    @include rotate(135deg);
+  }
+  
+  span {
+    position: absolute;
+    left: -9999px;
+  }
+  
+  &:hover {
+    &:before, &:after {
+      background: $link-hover-color;
+      height: 3px;
+    }
+  }
+}

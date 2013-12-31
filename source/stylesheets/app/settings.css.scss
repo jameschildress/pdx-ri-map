@@ -1,0 +1,42 @@
+@import "variables";
+
+
+
+#pdxri-settings {
+  border-bottom: 1px solid $border;
+  background: #fff;
+  
+  p {
+    margin-bottom: $pad;
+  }
+  
+  h2 {
+    text-align: center;
+    padding: $pad;
+    margin: 0;
+  }
+  
+  .pdxri-settings-control {
+    border-top: 1px dashed $border;
+    padding: $pad;
+  }
+  
+  label {
+    font-size: $text-size;
+    font-weight: bold;
+    color: $text-color;
+  }
+  
+  input {
+    cursor: pointer;
+    
+    &[type=range] {
+      width: 100%;
+      padding: 4px 0;
+    }
+    
+    &[type=checkbox] {
+      margin-right: 5px;
+    }
+  }
+}

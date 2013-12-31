@@ -1,0 +1,50 @@
+$max-mobile-width: 767px   ;
+$list-width:       300px   ;
+$pad:              10px    ;
+                          
+$title-color:      #777    ;
+$text-color:       #666    ;
+$link-color:       #07c    ;
+$link-hover-color: #09d    ;
+                   
+$header-bg:        #f5f5f5 ;
+$list-bg:          #fff    ;
+                           
+$border:           #ccc    ;
+$map-border:       #888    ;
+
+$font:             'Helvetica Neue', Helvetica, Arial, sans-serif;
+$heading-size:     16px    ;
+$text-margin:  0 0 3px 0   ;
+$text-size:        14px    ;
+$line-height:      1.2     ;
+
+
+
+@mixin grades {
+  &.grade-0 {
+    .grade {
+      color: #3a3;
+    }
+  }
+  &.grade-1 {
+    .grade {
+      color: #9a0;
+    }
+  }
+  &.grade-2 {
+    .grade {
+      color: #da0;
+    }
+  }
+  &.grade-3 {
+    .grade {
+      color: #d60;
+    }
+  }
+  &.grade-4 {
+    .grade {
+      color: #b00;
+    }
+  }
+}

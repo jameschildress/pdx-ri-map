@@ -1,0 +1,80 @@
+@import "variables";
+
+
+
+#pdxri-controls {
+  padding: $pad $pad $pad 0;
+  border-bottom: 1px solid $border;
+  border-top: 1px solid $border;
+  
+  #pdxri-address-search {
+    margin: 0 0 $pad $pad;
+    
+    #pdxri-address {
+      border: 1px solid #aaa;
+      background: #fff;
+      width: 100%;
+      padding: 5px;
+      box-shadow: 0 1px 0 #fff;
+      font-size: $text-size;
+      color: #444;
+      border-radius: 2px;
+      
+      &:disabled {
+        background: $header-bg;
+        color: #999;
+        border-color: #999;
+        cursor: default;
+      }
+    }
+  }
+  
+  #pdxri-selects {
+    margin-left: $pad;
+
+    select {
+      width: 100%;
+      margin: 0 0 $pad 0;
+      font-size: $text-size;
+      color: #666;
+    }
+  }
+  
+  #pdxri-buttons {
+    display: table;
+    width: 100%;
+    
+    .pdxri-button {
+      display: table-cell;
+      padding-left: $pad;  
+    }
+    
+    button {
+      border: 1px solid $link-color;
+      color: $link-color;
+      background: #fff;
+      border-radius: 7px;
+      padding: 5px 0;
+      width: 100%;
+      font-size: 15px;
+      cursor: pointer;
+      box-shadow: 0 1px 0 #fff;
+      
+      &:hover, &:focus {
+        background: #eef;
+      }
+      
+      &:active {
+        color: #05a;
+        border-color: #05a;
+      }
+      
+      &:disabled {
+        background: $header-bg;
+        color: #999;
+        border-color: #999;
+        cursor: default;
+      }
+    }
+  }
+}

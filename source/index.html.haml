@@ -1,24 +1,43 @@
-#pdxri-info
-
+#pdxri-sidebar
 
 
 
   #pdxri-header
+  
     %h1 PDX Restaurant Inspections
-    %p 
-      TODO: Instructions.
-      By
-      %a{ href: 'https://github.com/jameschildress' } James Childress
-      %span> .
+    
+    %p#pdxri-menu.no-mobile
+      %a#pdxri-nav-help{ href: '#' } Help
+      |
+      %a#pdxri-nav-settings{ href: '#' } Settings
+      |
+      %a#pdxri-nav-about{ href: '#' } About
+      
 
 
+  #pdxri-controls
+  
+    %form#pdxri-address-search
+      %input#pdxri-address{ type: 'text', placeholder: 'Search by Address...' }
+    
+    #pdxri-selects
+      %select#pdxri-sort
+        %option{ value: 'cid', selected: true } Sort by Distance
+        %option{ value: 'restaurantName'      } Sort by Name
+        %option{ value: 'score'               } Sort by Score
+  
+    #pdxri-buttons      
+      .pdxri-button
+        %button#pdxri-nearby{ type: :button } Search Near Me
+      .pdxri-button.no-mobile
+        %button#pdxri-area{ type: :button, disabled: true } Search in Area
+  
 
 
-  #pdxri-list
+  #pdxri-main
+  
 
 
-
-
-#pdxri-map-wrapper
+#pdxri-map-wrapper.no-mobile
 
   #pdxri-map

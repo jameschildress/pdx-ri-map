@@ -1,0 +1,41 @@
+@import "variables";
+
+
+
+.pdxri-item {
+  @include grades;
+  cursor: pointer;
+  background: $list-bg;
+
+  &:hover {
+    background: #eef;
+  }
+  
+  h2 {
+    color: $link-color;  
+  }
+  
+  h3 {
+    float: right;
+    margin-left: 20px;
+  }
+  
+  p {
+    margin-left: $pad;
+  }
+}
+
+
+
+.pdxri-error {
+  background: #fff3f3;
+  padding: $pad;
+  border-bottom: 1px solid $border;
+  text-align: center;
+  
+  p {
+    font-size: $text-size;
+    color: #b00;
+    font-weight: 500;
+  }
+}

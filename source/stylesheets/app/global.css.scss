@@ -1,0 +1,77 @@
+@import "variables";
+@import "compass";
+
+
+
+* {
+  border-spacing: 0;
+  border-collapse: collapse;
+  @include box-sizing(border-box);
+  
+  &::-moz-focus-inner {
+    border: 0;
+    outline: 0;
+  }
+}
+
+body {
+  background: $header-bg;
+  font-family: $font;
+}
+
+
+
+.no-mobile {
+  @media (max-width: $max-mobile-width) {
+    display: none !important;
+  }
+}
+
+
+
+h1 {
+  color: $title-color;
+  font-size: 20px;
+  font-weight: 400;
+  margin: $text-margin;
+  text-align: center;
+}
+
+h2, h3 {
+  font-size: $heading-size;
+  margin: $text-margin;
+  line-height: $line-height;
+  font-weight: normal;
+  color: $text-color;
+}
+
+h4 {
+  font-size: 12px;
+  margin: $text-margin;
+  line-height: $line-height;
+  color: #999;
+}
+
+p {
+  margin: 0;
+  font-size: 13px;
+  font-weight: normal;
+  color: #666;
+  clear: both;@import "variables";
+  line-height: 1.3;
+}
+
+a {
+  text-decoration: none;
+  color: $link-color;
+  
+  &:hover {
+    color: $link-hover-color;
+  }
+  
+  &.current {
+    color: $text-color !important;
+    cursor: default;
+  }
+}
+
