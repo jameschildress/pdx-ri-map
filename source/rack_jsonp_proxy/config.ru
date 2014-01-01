@@ -3,16 +3,34 @@ require 'uri'
 require 'cgi'
 require 'net/http'
 
-uri = URI.parse('http://www.portlandonline.com/scripts/911incidents.cfm')
+
+
+base_url = 'http://api.civicapps.org/restaurant-inspections/'
+
+
 
 app = proc do |env|
+  
+  params = Rack::Request.new(env).params
+  
+  url = if params['id']
+    base_url + "inspection/#{params['id']}"
+  elsif params['lat'] && params['lng']
+    base_url + "near/#{params['lng']},#{params['lat']}"
+  else
+    base_url
+  end
+
+  uri = URI.parse(url)
 
   json = Net::HTTP.get(uri.host, uri.path).to_json
-  callback = Rack::Request.new(env).params["callback"]
-  response = "#{callback}(#{json})"
+
+  response = "#{params["callback"]}(#{json})"
 
   [200, { "Content-Type" => "application/json" }, [response]]
 
 end
+
+
 
 run app
