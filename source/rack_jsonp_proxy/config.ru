@@ -11,15 +11,13 @@ class ProxyApp
   BASE_URL = 'http://api.civicapps.org/restaurant-inspections/'
   
   # Parameters to be passed to the API call as a query string
-  QUERY_PARAMS = %w( distance limit )
+  QUERY_PARAMS = %w( distance limit from to since )
   
   def call env
     
     # Get the request params
     params = Rack::Request.new(env).params
-    
-    puts params
-    
+        
     # Determine the API path to append based on the params included in the request
     uri = URI(
       if params['id']
