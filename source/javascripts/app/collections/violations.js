@@ -3,11 +3,15 @@
 
 
 
-  App.ViolationsCollection = Backbone.Collection.extend({
+  var ViolationsCollection = Backbone.Collection.extend({
 
-     model: App.Violation
+    model: App.Violation
 
-   });
+  });
+  
+  
+  
+  App.Violations = new ViolationsCollection();
   
   
   

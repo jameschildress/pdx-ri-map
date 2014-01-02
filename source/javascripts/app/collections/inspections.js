@@ -3,11 +3,15 @@
 
 
 
-  App.InspectionsCollection = Backbone.Collection.extend({
+  var InspectionsCollection = Backbone.Collection.extend({
 
-     model: App.Inspection
+    model: App.Inspection
 
-   });
+  });
+  
+  
+  
+  App.Inspections = new InspectionsCollection();
   
   
   
