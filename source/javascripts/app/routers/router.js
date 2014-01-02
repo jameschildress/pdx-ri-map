@@ -12,11 +12,11 @@
     }
 
   , near: function(lat, lng) {
-      console.debug("ROUTE: near/:lat/:lng , " + lat + " , " + lng);
+      console.debug("ROUTE: near/:lat/:lng, lat = " + lat + ", lng = " + lng);
     }
 
   , view: function(id) {
-      console.debug("ROUTE: view/:id , " + id);
+      console.debug("ROUTE: view/:id, id = " + id);
     }
     
   , index: function() {
