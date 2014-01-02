@@ -8,19 +8,19 @@
     routes: {
       "near/:lat/:lng": "near"
     , "view/:id":       "view"
-    , "*catchall":      "default"
+    , "":               "index"
     }
 
   , near: function(lat, lng) {
-      console.log("LAT: " + lat, "LONG: " + lng);
+      console.debug("ROUTE: near/:lat/:lng , " + lat + " , " + lng);
     }
 
   , view: function(id) {
-      console.log("ID: " + id);
+      console.debug("ROUTE: view/:id , " + id);
     }
     
-  , default: function(splat) {
-      console.log("SPLAT: " + splat);
+  , index: function() {
+      console.debug("ROUTE: index");
     }
 
   });
