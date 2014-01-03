@@ -7,6 +7,10 @@
 
     model: App.Inspection
   , url:   App.config.proxy.url
+  
+  , parse: function(response) {
+      return response.results;
+    }
 
     // Only fetch inspections that occurred within the last year
   , queryParams: function(latitude, longitude) {
