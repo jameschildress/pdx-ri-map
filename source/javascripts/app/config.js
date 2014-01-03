@@ -32,9 +32,6 @@
   // Use the new Google Maps style
   google.maps.visualRefresh = true;
 
-  // Set the default jQuery.ajax options
-  $.ajaxSetup(App.config.proxy);
-
 
 
 }());
