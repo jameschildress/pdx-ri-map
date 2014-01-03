@@ -13,8 +13,17 @@ $(function(){
     data: App.Inspections.queryParams(45.569653283, -122.663148)
   , dataType: App.config.proxy.dataType
   , reset: true
-  , success: function(){
-      console.dir(App.Inspections.models)
+  , success: function(inspections){
+      console.dir(_.pluck(inspections.models, 'attributes'));
+    }
+  });
+
+  App.Violations.fetch({
+    data: App.Violations.queryParams(7204477)
+  , dataType: App.config.proxy.dataType
+  , reset: true
+  , success: function(violations){
+      console.dir(_.pluck(violations.models, 'attributes'));
     }
   });
 
