@@ -3,6 +3,7 @@
 //= require vendor/backbone-min
 
 //= require app/config
+//= require app/utils
 
 //= require_tree ./app/models
 //= require_tree ./app/collections
