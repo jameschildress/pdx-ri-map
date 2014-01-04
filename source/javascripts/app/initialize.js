@@ -7,15 +7,18 @@ $(function(){
 
   
   
-  _.each(['Inspections', 'Violations'], function(colName){
-    App[colName].on('reset', function(col){
-      console.debug("COLLECTION RESET: " + colName)
-      console.dir(_.pluck(col.models, 'attributes'));    
-    });
+  App.Violations.on('reset', function(Violations){
+    console.debug("COLLECTION RESET: Violations")
+    console.dir(_.pluck(Violations.models, 'attributes'));    
   });
   
+  App.Inspections.on('reset', function(Inspections){
+    console.debug("COLLECTION RESET: Inspections")
+    console.dir(_.pluck(Inspections.models, 'attributes'));
+    console.dir(_.pluck(Inspections.findLatestUniquePerRestaurant(), 'attributes'));
+  });  
+  
 
- 
   
   Backbone.history.start();
   

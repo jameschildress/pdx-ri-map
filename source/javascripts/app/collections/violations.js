@@ -20,6 +20,7 @@
     }
     
   , fetchByInspectionID: function(inspectionID){
+      console.debug("FETCH: Violations");
       this.fetch({
         data: this.queryParams(inspectionID)
       , dataType: App.config.proxy.dataType

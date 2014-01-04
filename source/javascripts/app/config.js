@@ -22,7 +22,7 @@
       , dataType: 'jsonp'
       }
       
-    , resultsLimit: 300
+    , resultsLimit: 500
   
     }
   };

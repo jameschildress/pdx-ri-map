@@ -28,11 +28,25 @@
     }
     
   , fetchByLocation: function(latitude, longitude) {
+      console.debug("FETCH: Inspections");
       this.fetch({
         data: this.queryParams(latitude, longitude)
       , dataType: App.config.proxy.dataType
       , reset: true
       });
+    }
+    
+  , findLatestUniquePerRestaurant: function() {
+      var hash = {};
+      _.each(this.models, function(inspection){
+        var name  = inspection.get('restaurantName')
+          , date  = inspection.get('date')
+          , score = inspection.get('score');
+        if (score && (!hash[name] || date > hash[name].get('date'))) {
+          hash[name] = inspection;
+        }
+      });
+      return _.values(hash);
     }
 
   });
