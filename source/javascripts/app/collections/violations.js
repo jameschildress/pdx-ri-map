@@ -18,6 +18,14 @@
         id: inspectionID
       };
     }
+    
+  , fetchByInspectionID: function(inspectionID){
+      this.fetch({
+        data: this.queryParams(inspectionID)
+      , dataType: App.config.proxy.dataType
+      , reset: true
+      });
+    }
 
   });
   

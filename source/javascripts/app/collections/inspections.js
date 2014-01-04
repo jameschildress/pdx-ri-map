@@ -26,6 +26,14 @@
       , lng:   longitude
       };
     }
+    
+  , fetchByLocation: function(latitude, longitude) {
+      this.fetch({
+        data: this.queryParams(latitude, longitude)
+      , dataType: App.config.proxy.dataType
+      , reset: true
+      });
+    }
 
   });
   

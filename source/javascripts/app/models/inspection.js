@@ -38,22 +38,3 @@
   
   
 }());
-
-
-// name: "Acropolis Mcloughlin",
-// inspection_number: "9003667",
-// restaurant_id: "42",
-// type: "FoodSvcSemi",
-// date: "2012-10-14",
-// score: "90",
-// address: {
-//     street: "8325 SE Mc Loughlin Blvd",
-//     city: "Portland",
-//     zip: "97202"
-// },
-// location: {
-//     GISX: "7653323.41801",
-//     GISY: "662042.809488",
-//     Latitude: "45.462672740",
-//     Longitude: "-122.639146744"
-// }
