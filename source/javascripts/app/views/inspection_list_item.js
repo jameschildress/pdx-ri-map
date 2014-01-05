@@ -6,7 +6,10 @@
   App.InspectionListItemView = Backbone.View.extend({
   
     tagName:   'div'
-  , className: 'pdxri-list-item'
+    
+  , className: function(){
+      return 'pdxri-list-item grade-' + this.model.get('grade');
+    }
   
   , template: function(inspection) {
       var html = ''

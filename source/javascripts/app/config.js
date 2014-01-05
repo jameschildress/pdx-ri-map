@@ -23,14 +23,12 @@
       }
       
     , resultsLimit: 500
+    
+    , grades: ['A', 'B', 'C', 'D', 'F']
+    , pointsPerGrade: 5 
   
     }
   };
-
-
-
-  // Use the new Google Maps style
-  google.maps.visualRefresh = true;
 
 
 
