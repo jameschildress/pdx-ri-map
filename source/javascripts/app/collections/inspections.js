@@ -12,7 +12,8 @@
       return response.results;
     }
 
-    // Only fetch inspections that occurred within the last year
+    // Return the query parameters to be called by fetch()
+    // Only fetches inspections that occurred within the last year
   , queryParams: function(latitude, longitude) {
       var formatDate = App.utils.formatDate
         , now        = new Date
@@ -36,6 +37,8 @@
       });
     }
     
+    // Returns an array of the latest inspection for each unique restaurant name
+    // Ignore inspections with a score of zero
   , findLatestUniquePerRestaurant: function() {
       var hash = {};
       _.each(this.models, function(inspection){

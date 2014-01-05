@@ -12,6 +12,7 @@
       return response.results.violations;
     }
   
+    // Return the query parameters to be called by fetch()
     // Only fetch violations for the given inspection ID
   , queryParams: function(inspectionID) {
       return {

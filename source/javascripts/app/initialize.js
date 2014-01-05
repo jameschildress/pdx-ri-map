@@ -18,7 +18,7 @@ $(function(){
     console.dir(_.pluck(Inspections.findLatestUniquePerRestaurant(), 'attributes'));
   });  
   
-
+  new App.InspectionsListView();
   
   Backbone.history.start();
   

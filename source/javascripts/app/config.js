@@ -12,7 +12,7 @@
       , options: {
           zoom:    12
         , minZoom: 11
-        , center:  new google.maps.LatLng(45.5278, -122.5702)
+        // , center:  new google.maps.LatLng(45.5278, -122.5702)
         , streetViewControl: false
         }
       }
