@@ -8,18 +8,16 @@
     el: '#pdxri-list'
     
   , collection: App.Inspections
-    
-  , template: function() {
-      var inspections = this.collection.findLatestUniquePerRestaurant();
-      return _.reduce(inspections, function(memo, inspection){
-        var listItemView = new App.InspectionListItemView({ model: inspection });
-        return memo + listItemView.render();
-      }, '');
-    }
   
   , render: function() {
+      var listItems = [];
       console.debug('RENDERING: InspectionsListView');
-      this.$el.html(this.template());
+      this.$el.empty();
+      _.each(this.collection.findLatestUniquePerRestaurant(), function(inspection){
+        var listItemView = new App.InspectionListItemView({ model: inspection });
+        listItems.push(listItemView.render().$el);        
+      });
+      this.$el.append(listItems);
       return this;
     }
     
