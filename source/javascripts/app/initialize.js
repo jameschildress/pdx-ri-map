@@ -19,6 +19,7 @@ $(function(){
   });  
   
   new App.InspectionsListView();
+  new App.InspectionsCountView();
   
   Backbone.history.start();
   
