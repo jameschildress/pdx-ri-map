@@ -20,11 +20,12 @@
         , tomorrow   = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1)
         , yearAgo    = new Date(now.getFullYear() - 1, now.getMonth(), now.getDate());
       return {
-        limit: App.config.resultsLimit
-      , to:    formatDate(tomorrow)
-      , from:  formatDate(yearAgo)
-      , lat:   latitude
-      , lng:   longitude
+        limit:    App.config.proxy.maxResults
+      , distance: App.config.proxy.maxDistance
+      , to:       formatDate(tomorrow)
+      , from:     formatDate(yearAgo)
+      , lat:      latitude
+      , lng:      longitude
       };
     }
     

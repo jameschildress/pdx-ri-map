@@ -6,30 +6,16 @@
   window.App = {
   
     config: {
-    
-      map: { 
-        divID: 'pdxri-map'
-      , options: {
-          zoom:    12
-        , minZoom: 11
-        // , center:  new google.maps.LatLng(45.5278, -122.5702)
-        , streetViewControl: false
-        }
-      }
-    
-    , proxy: {
+      proxy: {
         url: 'http://pdxri.childr.es/'
       , dataType: 'jsonp'
+      , maxResults: 500
+      , maxDistance: 0.75
       }
-      
-    , resultsLimit: 500
-    
     , grades: ['A', 'B', 'C', 'D', 'F']
     , pointsPerGrade: 5
-    
-    , pendingClass: 'pending' 
-  
     }
+    
   };
 
 

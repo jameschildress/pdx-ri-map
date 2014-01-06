@@ -1,10 +1,6 @@
 $(function(){
   'use strict';
 
-
-
-  // new google.maps.Map(document.getElementById(App.config.map.divID), App.config.map.options);
-
   
   
   App.Violations.on('reset', function(Violations){
@@ -38,6 +34,7 @@ $(function(){
   
   
   new App.InspectionsListView();
+  new App.InspectionsMapView();
   new App.InspectionsCountView();
   new App.ControlsView();
   

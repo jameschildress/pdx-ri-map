@@ -1,7 +1,5 @@
 (function(){
   "use strict";
-  
-  var pending = App.config.pendingClass;
 
 
 
@@ -18,12 +16,17 @@
         var listItemView = new App.InspectionListItemView({ model: inspection });
         listItems.push(listItemView.render().$el);        
       });
-      this.$el.removeClass(pending).append(listItems);
+      this.$el
+        .empty()
+        .removeClass('pending')
+        .append(listItems);
       return this;
     }
 
   , pending: function() {
-      this.$el.empty().addClass(pending);
+      this.$el
+        .empty()
+        .addClass('pending');
     } 
         
   , initialize: function() {
