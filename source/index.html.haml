@@ -2,9 +2,10 @@
 
 
 
-
   #pdxri-header
+  
     %h1 PDX Restaurant Inspections
+    
     %p 
       TODO: Instructions.
       By
@@ -13,11 +14,18 @@
 
 
 
+  #pdxri-controls
+    
+    %select#pdxri-sort
+      %option{ value: 'cid', selected: true } Sort by Distance
+      %option{ value: 'restaurantName'      } Sort by Name
+      %option{ value: 'score'               } Sort by Score
+  
+
 
   #pdxri-list
   
   #pdxri-count
-
 
 
 

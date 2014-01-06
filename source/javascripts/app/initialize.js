@@ -9,13 +9,13 @@ $(function(){
   
   App.Violations.on('reset', function(Violations){
     console.debug("COLLECTION RESET: Violations")
-    console.dir(_.pluck(Violations.models, 'attributes'));    
+    console.dir(Violations.models);    
   });
   
   App.Inspections.on('reset', function(Inspections){
     console.debug("COLLECTION RESET: Inspections")
-    console.dir(_.pluck(Inspections.models, 'attributes'));
-    console.dir(_.pluck(Inspections.findLatestUniquePerRestaurant(), 'attributes'));
+    console.dir(Inspections.models);
+    console.dir(Inspections.findLatestUniquePerRestaurant());
   });  
   
   new App.InspectionsListView();

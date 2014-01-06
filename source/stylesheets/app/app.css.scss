@@ -27,7 +27,7 @@ $max-mobile-width: 767px;
 }
 
 body {
-  background: $list-bg;
+  background: $header-bg;
   font-family: $font;
 }
 
@@ -37,7 +37,6 @@ h2 {
   margin: 0 0 3px 0;
   color: $heading-color;
 }
-
 
 
 
@@ -69,7 +68,7 @@ h2 {
 
 #pdxri-header {
   padding: 5px $list-item-padding $list-item-padding $list-item-padding;
-  background: $header-bg;
+  background: $list-bg;
   
   h1 {
     color: $title-color;
@@ -114,6 +113,21 @@ h2 {
 
 
 
+#pdxri-controls {
+  padding: $list-item-padding $list-item-padding 0 $list-item-padding;
+  border-bottom: 1px solid $list-item-border;
+  border-top: 1px solid $list-item-border;
+  background: $header-bg;
+  
+  select {
+    width: 100%;
+    margin-bottom: $list-item-padding;
+  }
+}
+
+
+
+
 #pdxri-info {
   width: $list-width;
   
@@ -130,6 +144,7 @@ h2 {
 .pdxri-list-item {
   cursor: pointer;
   font-family: $font !important;
+  background: $list-bg;
   
   h2 {
     display: block;
