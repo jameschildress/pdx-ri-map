@@ -20,6 +20,7 @@ $(function(){
   
   new App.InspectionsListView();
   new App.InspectionsCountView();
+  new App.ControlsView();
   
   Backbone.history.start();
   

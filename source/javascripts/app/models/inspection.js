@@ -35,6 +35,9 @@
     
   , initialize: function() {
       this.setGrade();
+      // Add Backbone-generated CID to attributes for easy sorting by distance,
+      // since results are returned in distance-sorted order
+      this.set('cid', this.cid);
     }
     
     // Set the 'grade' attribute based on the inspection score
