@@ -18,9 +18,14 @@
       this.$el.html(this.template());
       return this;
     }
+
+  , pending: function() {
+      this.$el.empty();
+    }
     
   , initialize: function() {
-      this.listenTo(this.collection, 'filter', this.render);
+      this.listenTo(this.collection, 'filter', this.render  );
+      this.listenTo(this.collection, 'fetch' , this.pending );
     }
   
   });

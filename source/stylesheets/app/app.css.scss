@@ -141,6 +141,15 @@ h2 {
   }
 }
 
+#pdxri-list {
+  &.pending {
+    height: 200px;
+    background-image: url(../images/pending.gif);
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+}
+
 .pdxri-list-item {
   cursor: pointer;
   font-family: $font !important;

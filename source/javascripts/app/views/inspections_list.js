@@ -1,5 +1,7 @@
 (function(){
   "use strict";
+  
+  var pending = App.config.pendingClass;
 
 
 
@@ -12,20 +14,24 @@
   , render: function() {
       var listItems = [];
       console.debug('RENDER: InspectionsListView');
-      this.$el.empty();
       _.each(this.collection.models, function(inspection){
         var listItemView = new App.InspectionListItemView({ model: inspection });
         listItems.push(listItemView.render().$el);        
       });
-      this.$el.append(listItems);
+      this.$el.removeClass(pending).append(listItems);
       return this;
     }
-    
+
+  , pending: function() {
+      this.$el.empty().addClass(pending);
+    } 
+        
   , initialize: function() {
-      this.listenTo(this.collection, 'filter', this.render);
-      this.listenTo(this.collection, 'sort' , this.render);
+      this.listenTo(this.collection, 'fetch' , this.pending );
+      this.listenTo(this.collection, 'filter', this.render  );
+      this.listenTo(this.collection, 'sort'  , this.render  );
     }
-  
+      
   });
  
   
