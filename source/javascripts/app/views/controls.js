@@ -15,7 +15,6 @@
     
   , initialize: function(){
       this.$sorter = this.$('#pdxri-sort');
-      this.$sorter.trigger('change');
     }
     
   , sortInspections: function(){

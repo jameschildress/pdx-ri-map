@@ -11,9 +11,9 @@
   
   , render: function() {
       var listItems = [];
-      console.debug('RENDERING: InspectionsListView');
+      console.debug('RENDER: InspectionsListView');
       this.$el.empty();
-      _.each(this.collection.findLatestUniquePerRestaurant(), function(inspection){
+      _.each(this.collection.models, function(inspection){
         var listItemView = new App.InspectionListItemView({ model: inspection });
         listItems.push(listItemView.render().$el);        
       });
@@ -22,7 +22,7 @@
     }
     
   , initialize: function() {
-      this.listenTo(this.collection, 'reset', this.render);
+      this.listenTo(this.collection, 'filter', this.render);
       this.listenTo(this.collection, 'sort' , this.render);
     }
   

@@ -11,7 +11,7 @@
   , parse: function(response) {
       return response.results;
     }
-
+    
     // Return the query parameters to be called by fetch()
     // Only fetches inspections that occurred within the last year
   , queryParams: function(latitude, longitude) {
@@ -29,7 +29,7 @@
     }
     
   , fetchByLocation: function(latitude, longitude) {
-      console.debug("FETCH: Inspections");
+      this.trigger('fetch', this);
       this.fetch({
         data: this.queryParams(latitude, longitude)
       , dataType: App.config.proxy.dataType
@@ -37,9 +37,9 @@
       });
     }
     
-    // Returns an array of the latest inspection for each unique restaurant name
+    // Reset the collection with only the latest inspection for each unique restaurant name
     // Ignore inspections with a score of zero
-  , findLatestUniquePerRestaurant: function() {
+  , filterLatestUniquePerRestaurant: function() {
       var hash = {};
       _.each(this.models, function(inspection){
         var name  = inspection.get('restaurantName')
@@ -49,7 +49,12 @@
           hash[name] = inspection;
         }
       });
-      return _.values(hash);
+      this.reset(_.values(hash), { silent: true });
+      this.trigger('filter', this);
+    }
+    
+  , initialize: function(){
+      this.on('reset', this.filterLatestUniquePerRestaurant, this);
     }
 
   });
