@@ -38,18 +38,15 @@
     }
     
   , removeMarkers: function() {
-      _.each(this.markers, function (marker) {
-        marker.setMap(null);
-      });
-      this.markers = [];
+      var i = this.markers.length;
+      while (i--) {
+        this.markers.pop().remove();
+      }
     }
     
   , addMarker: function(inspection) {
-      this.markers.push(new google.maps.Marker({
-        position: new google.maps.LatLng(inspection.get('latitude'), inspection.get('longitude'))
-      , title:    inspection.get('restaurantName')
-      , map:      this.map
-      }));
+      var marker = new App.InspectionMapMarkerView({ model: inspection, map: this.map });
+      this.markers.push(marker.render(this.map));
     }
   
       
