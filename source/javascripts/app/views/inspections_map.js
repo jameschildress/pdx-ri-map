@@ -5,16 +5,7 @@
 
   App.InspectionsMapView = Backbone.View.extend({
   
-    el: '#pdxri-map'
-
-  , collection: App.Inspections
-
-  , mapOptions: {
-      zoom:    11
-    , minZoom: 11
-    , center:  new google.maps.LatLng(45.5278, -122.5702)
-    , streetViewControl: false
-    }
+    collection: App.Inspections
   
   
   
@@ -27,8 +18,6 @@
       return this;
     }
 
-
-
   , pending: function() {
       this.removeMarkers();
     } 
@@ -37,16 +26,11 @@
     
   , initialize: function() {
       this.markers = [];
-      this.map = new google.maps.Map(this.$el[0], this.mapOptions);
-      this.infoWindow = new google.maps.InfoWindow();
-      this.queryMarker = new App.QueryMapMarkerView({
-        map:        this.map
-      , infoWindow: this.infoWindow
-      });
+      this.queryMarker = new App.QueryMapMarkerView();
       
       this.listenTo(this.collection, 'fetch' , this.pending );
       this.listenTo(this.collection, 'filter', this.render  );
-      google.maps.event.addListener(this.map, 'click', this.mapClick);
+      google.maps.event.addListener(App.map, 'click', this.mapClick);
     }
     
     
@@ -60,11 +44,7 @@
     }
     
   , addMarker: function(inspection) {
-      var marker = new App.InspectionMapMarkerView({
-        model:      inspection
-      , map:        this.map
-      , infoWindow: this.infoWindow
-      });
+      var marker = new App.InspectionMapMarkerView({ model: inspection });
       this.markers.push(marker.render());
     }
     
