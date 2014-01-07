@@ -29,7 +29,7 @@ $(function(){
 
   App.Inspections.on('fetch', function(Inspections){
     console.debug("FETCH: Inspections")
-  }); 
+  });
   
   
   

@@ -30,9 +30,10 @@
     } 
         
   , initialize: function() {
-      this.listenTo(this.collection, 'fetch' , this.pending );
-      this.listenTo(this.collection, 'filter', this.render  );
-      this.listenTo(this.collection, 'sort'  , this.render  );
+      this.listenTo( this.collection , 'fetch'        , this.pending );
+      this.listenTo( App.Router      , 'route:nearby' , this.pending );
+      this.listenTo( this.collection , 'filter'       , this.render  );
+      this.listenTo( this.collection , 'sort'         , this.render  );
     }
       
   });

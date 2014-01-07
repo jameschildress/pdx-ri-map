@@ -18,12 +18,13 @@
   , initialize: function(){
       var self = this;
       
-      this.$sortMenu     = this.$('#pdxri-sort');
-      this.$queryButton  = this.$('#pdxri-query');
+      this.$sortMenu     = this.$('#pdxri-sort'  );
+      this.$queryButton  = this.$('#pdxri-query' );
       this.$nearbyButton = this.$('#pdxri-nearby');
       
-      this.listenTo(this.collection, 'fetch' ,this.pending);
-      this.listenTo(this.collection, 'filter',this.queryComplete);
+      this.listenTo( this.collection, 'fetch'       , this.pending       );
+      this.listenTo( App.Router     , 'route:nearby', this.pending       );
+      this.listenTo( this.collection, 'filter'      , this.queryComplete );
       
       // Enable the query button after the circle has been placed
       google.maps.event.addListener(App.circle, 'center_changed', function(event){
@@ -33,7 +34,7 @@
     
     // Disable buttons while a query is pending
   , pending: function(){
-      this.$queryButton.attr('disabled', true);
+      this.$queryButton.attr( 'disabled', true);
       this.$nearbyButton.attr('disabled', true);
     }
 
