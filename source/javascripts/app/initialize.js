@@ -38,6 +38,7 @@ $(function(){
   , App.config.map.options
   );
   App.infoWindow = new google.maps.InfoWindow();
+  App.circle = new google.maps.Circle(App.config.map.circle);
   
   new App.InspectionsListView();
   new App.InspectionsMapView();

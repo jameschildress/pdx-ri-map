@@ -25,16 +25,12 @@
     
     
   , initialize: function() {
-      var self = this;
-      
-      this.markers = [];
-      this.queryMarker = new App.QueryMapMarkerView();
-      
+      this.markers = [];      
       this.listenTo(this.collection, 'fetch' , this.pending );
       this.listenTo(this.collection, 'filter', this.render  );
-      
       google.maps.event.addListener(App.map, 'click', function(event){
-        self.queryMarker.render(event.latLng);
+        App.circle.setCenter(event.latLng);
+        App.circle.setMap(App.map);    
         event.stop();
       });
     }
@@ -46,7 +42,7 @@
       while (i--) {
         this.markers.pop().hide();
       }
-      this.queryMarker.hide();
+      App.circle.setMap(null);
     }
     
   , addMarker: function(inspection) {
