@@ -25,9 +25,11 @@
     
     
   , initialize: function() {
-      this.markers = [];      
+      this.markers = [];
+      
       this.listenTo(this.collection, 'fetch' , this.pending );
       this.listenTo(this.collection, 'filter', this.render  );
+      
       google.maps.event.addListener(App.map, 'click', function(event){
         App.circle.setCenter(event.latLng);
         App.circle.setMap(App.map);    

@@ -10,17 +10,41 @@
   , collection: App.Inspections
   
   , events: {
-     'change #pdxri-sort': 'sortInspections'
+      'change #pdxri-sort': 'sortInspections'
+    , 'click #pdxri-query': 'queryMap' 
     }
     
   , initialize: function(){
+      var self = this;
+      
       this.$sorter = this.$('#pdxri-sort');
+      this.$queryButton = this.$('#pdxri-query');
+      
+      this.listenTo(this.collection, 'fetch' , this.pending );
+      
+      google.maps.event.addListener(App.circle, 'center_changed', function(event){
+        self.$queryButton.removeAttr('disabled');
+      });
+    }
+    
+  , pending: function(){
+      this.$queryButton.attr('disabled', true);
     }
     
   , sortInspections: function(){
-      var attr = this.$sorter.val();
-      this.collection.comparator = attr;
+      this.collection.comparator = this.$sorter.val();
       this.collection.sort();
+    }
+  
+  , queryMap: function(){
+      var latLng;
+      if (App.circle.getMap()) {
+        latLng = App.circle.getCenter();
+        App.Router.navigate(
+          'near/' + latLng.lat() + '/' + latLng.lng()
+        , { trigger: true } 
+        );
+      }
     }
         
   });
