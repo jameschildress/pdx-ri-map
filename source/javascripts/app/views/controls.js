@@ -10,17 +10,20 @@
   , collection: App.Inspections
   
   , events: {
-      'change #pdxri-sort': 'sortInspections'
-    , 'click #pdxri-query': 'queryMap' 
+      'change #pdxri-sort':  'sortInspections'
+    , 'click #pdxri-query':  'queryMap' 
+    , 'click #pdxri-nearby': 'queryNearby' 
     }
     
   , initialize: function(){
       var self = this;
       
-      this.$sorter = this.$('#pdxri-sort');
-      this.$queryButton = this.$('#pdxri-query');
+      this.$sortMenu     = this.$('#pdxri-sort');
+      this.$queryButton  = this.$('#pdxri-query');
+      this.$nearbyButton = this.$('#pdxri-nearby');
       
-      this.listenTo(this.collection, 'fetch' , this.pending );
+      this.listenTo(this.collection, 'fetch' ,this.pending);
+      this.listenTo(this.collection, 'filter',this.queryComplete);
       
       // Enable the query button after the circle has been placed
       google.maps.event.addListener(App.circle, 'center_changed', function(event){
@@ -28,13 +31,19 @@
       });
     }
     
+    // Disable buttons while a query is pending
   , pending: function(){
-      // Disable the query button when a query has been fetched
       this.$queryButton.attr('disabled', true);
+      this.$nearbyButton.attr('disabled', true);
+    }
+
+  , queryComplete: function(){
+      // Enable the 'nearby' button when the query is done rendering
+      this.$nearbyButton.removeAttr('disabled');
     }
     
   , sortInspections: function(){
-      this.collection.comparator = this.$sorter.val();
+      this.collection.comparator = this.$sortMenu.val();
       this.collection.sort();
     }
   
@@ -47,6 +56,10 @@
         , { trigger: true } 
         );
       }
+    }
+    
+  , queryNearby: function(){
+      App.Router.navigate('nearby', { trigger: true });
     }
         
   });
