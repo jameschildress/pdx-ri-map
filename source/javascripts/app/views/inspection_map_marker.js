@@ -5,26 +5,28 @@
 
   App.InspectionMapMarkerView = Backbone.View.extend({
   
-    render: function(map, infoWindow) {
+    render: function() {
       var self = this;
-      this.marker.setMap(map);
+      this.marker.setMap(self.map);
       google.maps.event.addListener(this.marker, 'click', function() {
-        infoWindow.setContent(
+        self.infoWindow.setContent(
           new App.InspectionListItemView({ model: self.model }).render().$el[0]
         );
-        infoWindow.open(map, self.marker);
+        self.infoWindow.open(self.map, self.marker);
       });
       return this;
     }
     
-  , initialize: function() {
+  , initialize: function(options) {
+      this.map = options.map
+      this.infoWindow = options.infoWindow
       this.marker = new google.maps.Marker({
         position: new google.maps.LatLng(this.model.get('latitude'), this.model.get('longitude'))
       , title:    this.model.get('restaurantName')
       });
     }
     
-  , remove: function(){
+  , hide: function(){
       this.marker.setMap(null);
     }
   

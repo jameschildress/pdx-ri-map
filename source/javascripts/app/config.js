@@ -10,7 +10,7 @@
         url: 'http://pdxri.childr.es/'
       , dataType: 'jsonp'
       , maxResults: 500
-      , maxDistance: 0.75
+      , maxDistance: 0.5
       }
     , grades: ['A', 'B', 'C', 'D', 'F']
     , pointsPerGrade: 5
