@@ -6,13 +6,13 @@
   var Router = Backbone.Router.extend({
 
     routes: {
-      "near/:lat/:lng": "near"
-    , "view/:id":       "view"
-    , "":               "index"
+      "at/:lat/:lng": "at"
+    , "view/:id":     "view"
+    , "nearby":       "nearby"
     }
 
-  , near: function(lat, lng) {
-      console.debug("ROUTE: near/:lat/:lng, lat = " + lat + ", lng = " + lng);
+  , at: function(lat, lng) {
+      console.debug("ROUTE: at/:lat/:lng, lat = " + lat + ", lng = " + lng);
       App.Inspections.fetchByLocation(lat, lng);
     }
 
@@ -21,8 +21,8 @@
       App.Violations.fetchByInspectionID(id);
     }
     
-  , index: function() {
-      console.debug("ROUTE: index");
+  , nearby: function() {
+      console.debug("ROUTE: nearby");
       navigator.geolocation.getCurrentPosition(function(location){
         App.Inspections.fetchByLocation(location.coords.latitude, location.coords.longitude);
       });

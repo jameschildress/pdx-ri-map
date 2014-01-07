@@ -22,12 +22,14 @@
       
       this.listenTo(this.collection, 'fetch' , this.pending );
       
+      // Enable the query button after the circle has been placed
       google.maps.event.addListener(App.circle, 'center_changed', function(event){
         self.$queryButton.removeAttr('disabled');
       });
     }
     
   , pending: function(){
+      // Disable the query button when a query has been fetched
       this.$queryButton.attr('disabled', true);
     }
     
@@ -41,7 +43,7 @@
       if (App.circle.getMap()) {
         latLng = App.circle.getCenter();
         App.Router.navigate(
-          'near/' + latLng.lat() + '/' + latLng.lng()
+          'at/' + latLng.lat() + '/' + latLng.lng()
         , { trigger: true } 
         );
       }
