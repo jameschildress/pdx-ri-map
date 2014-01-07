@@ -5,8 +5,15 @@
 
   App.InspectionMapMarkerView = Backbone.View.extend({
   
-    render: function(map) {
+    render: function(map, infoWindow) {
+      var self = this;
       this.marker.setMap(map);
+      google.maps.event.addListener(this.marker, 'click', function() {
+        infoWindow.setContent(
+          new App.InspectionListItemView({ model: self.model }).render().$el[0]
+        );
+        infoWindow.open(map, self.marker);
+      });
       return this;
     }
     

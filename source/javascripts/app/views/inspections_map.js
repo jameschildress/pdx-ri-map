@@ -33,6 +33,7 @@
   , initialize: function() {
       this.markers = [];
       this.map = new google.maps.Map(this.$el[0], this.mapOptions);
+      this.infoWindow = new google.maps.InfoWindow();
       this.listenTo(this.collection, 'fetch' , this.pending );
       this.listenTo(this.collection, 'filter', this.render  );
     }
@@ -46,7 +47,7 @@
     
   , addMarker: function(inspection) {
       var marker = new App.InspectionMapMarkerView({ model: inspection, map: this.map });
-      this.markers.push(marker.render(this.map));
+      this.markers.push(marker.render(this.map, this.infoWindow));
     }
   
       
