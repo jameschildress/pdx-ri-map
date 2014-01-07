@@ -24,7 +24,10 @@
   , nearby: function() {
       console.debug("ROUTE: nearby");
       navigator.geolocation.getCurrentPosition(function(location){
-        App.Inspections.fetchByLocation(location.coords.latitude, location.coords.longitude);
+        var lat = location.coords.latitude
+          , lng = location.coords.longitude;
+        App.Inspections.fetchByLocation(lat, lng);
+        google.maps.event.trigger(App.map, 'click', { latLng: new google.maps.LatLng(lat, lng) });
       });
     }
 

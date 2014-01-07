@@ -44,7 +44,7 @@
       while (i--) {
         this.markers.pop().hide();
       }
-      App.circle.setMap(null);
+      // App.circle.setMap(null);
     }
     
   , addMarker: function(inspection) {
