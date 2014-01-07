@@ -35,6 +35,7 @@
       
       google.maps.event.addListener(App.map, 'click', function(event){
         self.queryMarker.render(event.latLng);
+        event.stop();
       });
     }
     
