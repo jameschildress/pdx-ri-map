@@ -28,7 +28,12 @@ $(function(){
   }); 
 
   App.Inspections.on('fetch', function(Inspections){
-    console.debug("FETCH: Inspections")
+    console.debug("FETCH: Inspections");
+  });
+  
+  App.location.on('found', function(latLng){
+    var latLng = App.location.latLng;
+    console.debug("LOCATION:", latLng.lat(), latLng.lng());
   });
   
   
@@ -38,12 +43,12 @@ $(function(){
   , App.config.map.options
   );
   App.infoWindow = new google.maps.InfoWindow();
-  App.circle = new google.maps.Circle(App.config.map.circle);
   
   new App.InspectionsListView();
   new App.InspectionsMapView();
   new App.InspectionsCountView();
   new App.ControlsView();
+  new App.QueryMapMarkerView();
   
   Backbone.history.start();
   

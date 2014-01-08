@@ -22,20 +22,21 @@
       this.$queryButton  = this.$('#pdxri-query' );
       this.$nearbyButton = this.$('#pdxri-nearby');
       
-      this.listenTo( this.collection, 'fetch'       , this.pending       );
-      this.listenTo( App.Router     , 'route:nearby', this.pending       );
-      this.listenTo( this.collection, 'filter'      , this.queryComplete );
-      
-      // Enable the query button after the circle has been placed
-      google.maps.event.addListener(App.circle, 'center_changed', function(event){
-        self.$queryButton.removeAttr('disabled');
-      });
+      this.listenTo( this.collection, 'fetch'  , this.pending           );
+      this.listenTo( App.location   , 'seek'   , this.pending           );
+      this.listenTo( this.collection, 'filter' , this.queryComplete     );
+      this.listenTo( this.collection, 'filter' , this.queryComplete     );
+      this.listenTo( App.location   , 'change' , this.enableQueryButton );
     }
     
     // Disable buttons while a query is pending
   , pending: function(){
       this.$queryButton.attr( 'disabled', true);
       this.$nearbyButton.attr('disabled', true);
+    }
+    
+  , enableQueryButton: function(){
+      this.$queryButton.removeAttr('disabled');
     }
 
   , queryComplete: function(){
@@ -49,14 +50,11 @@
     }
   
   , queryMap: function(){
-      var latLng;
-      if (App.circle.getMap()) {
-        latLng = App.circle.getCenter();
-        App.Router.navigate(
-          'at/' + latLng.lat() + '/' + latLng.lng()
-        , { trigger: true } 
-        );
-      }
+      var latLng = App.location.latLng;
+      App.Router.navigate(
+        'at/' + latLng.lat() + '/' + latLng.lng()
+      , { trigger: true } 
+      );
     }
     
   , queryNearby: function(){

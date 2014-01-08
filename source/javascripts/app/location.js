@@ -13,14 +13,14 @@
       self.trigger('seek');
       navigator.geolocation.getCurrentPosition(function(location){
         self.latLng = new google.maps.LatLng(location.coords.latitude, location.coords.longitude);
-        self.trigger('found');
+        self.trigger('found', self.latLng);
         onSuccess(self.latLng);
       });
     }
     
   , set: function(latLng) {
       this.latLng = latLng;
-      self.trigger('change');
+      this.trigger('change', latLng);
     }
     
   }

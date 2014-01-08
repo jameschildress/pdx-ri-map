@@ -23,12 +23,8 @@
     
   , nearby: function() {
       console.debug("ROUTE: nearby");
-      navigator.geolocation.getCurrentPosition(function(location){
-        var lat = location.coords.latitude
-          , lng = location.coords.longitude;
-        console.debug("LOCATION:", lat, lng);
-        App.Inspections.fetchByLocation(lat, lng);
-        google.maps.event.trigger(App.map, 'click', { latLng: new google.maps.LatLng(lat, lng) });
+      App.location.detect(function(latLng){
+        App.Inspections.fetchByLocation(latLng.lat(), latLng.lng());
       });
     }
 

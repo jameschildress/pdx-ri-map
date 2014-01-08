@@ -31,8 +31,7 @@
       this.listenTo(this.collection, 'filter', this.render  );
       
       google.maps.event.addListener(App.map, 'click', function(event){
-        App.circle.setCenter(event.latLng);
-        App.circle.setMap(App.map);    
+        App.location.set(event.latLng);   
       });
     }
     
@@ -43,7 +42,6 @@
       while (i--) {
         this.markers.pop().hide();
       }
-      // App.circle.setMap(null);
     }
     
   , addMarker: function(inspection) {
