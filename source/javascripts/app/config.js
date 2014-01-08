@@ -27,9 +27,11 @@
         }
       , circle: {
           radius: 0.5 / 0.00062137  // convert maxDistance to meters
-        , strokeOpacity: 0
+        , strokeColor:   '#0077cc'
+        , strokeOpacity: 0.5
+        , strokeWeight:  1
         , fillColor:     '#0077cc'
-        , fillOpacity:   0.4
+        , fillOpacity:   0.2
         }
       }
     }

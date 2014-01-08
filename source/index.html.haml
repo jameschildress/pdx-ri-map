@@ -20,10 +20,12 @@
       %option{ value: 'cid', selected: true } Sort by Distance
       %option{ value: 'restaurantName'      } Sort by Name
       %option{ value: 'score'               } Sort by Score
-      
-    %button#pdxri-query{ type: :button, disabled: true } Search in Area
-
-    %button#pdxri-nearby{ type: :button } Search Nearby
+  
+    #pdxri-buttons      
+      .pdxri-button
+        %button#pdxri-nearby{ type: :button } Search Near Me
+      .pdxri-button
+        %button#pdxri-query{ type: :button, disabled: true } Search in Area
   
 
 

@@ -15,7 +15,7 @@ $text-color: #666;
 $active-item-color: $heading-color;
 $active-heading-color: #fff;
 $active-text-color: #fff;
-$font: Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $header-bg: #eee;
 $max-mobile-width: 767px;
 
@@ -68,7 +68,7 @@ h2 {
 
 #pdxri-header {
   padding: 5px $list-item-padding $list-item-padding $list-item-padding;
-  background: $list-bg;
+  background: #f3f3f3;
   
   h1 {
     color: $title-color;
@@ -114,7 +114,7 @@ h2 {
 
 
 #pdxri-controls {
-  padding: $list-item-padding $list-item-padding 0 $list-item-padding;
+  padding: $list-item-padding;
   border-bottom: 1px solid $list-item-border;
   border-top: 1px solid $list-item-border;
   background: $header-bg;
@@ -122,6 +122,50 @@ h2 {
   select {
     width: 100%;
     margin-bottom: $list-item-padding;
+  }
+  
+  #pdxri-buttons {
+    display: table;
+    width: 100%;
+    
+    .pdxri-button {
+      display: table-cell;
+      
+      &:first-child {
+        padding-right: 5px;
+      }
+      
+      &:last-child {
+        padding-left: 5px;
+      }      
+    }
+    
+    button {
+      border: 1px solid $heading-color;
+      color: $heading-color;
+      background: #fff;
+      border-radius: 5px;
+      padding: 5px 0;
+      width: 100%;
+      font-size: 15px;
+      cursor: pointer;
+      
+      &:hover, &:focus {
+        background: #eef;
+      }
+      
+      &:active {
+        color: #05a;
+        border-color: #05a;
+      }
+      
+      &:disabled {
+        background: $header-bg;
+        color: #999;
+        border-color: #999;
+        cursor: default;
+      }
+    }
   }
 }
 

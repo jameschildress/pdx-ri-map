@@ -33,7 +33,6 @@
       google.maps.event.addListener(App.map, 'click', function(event){
         App.circle.setCenter(event.latLng);
         App.circle.setMap(App.map);    
-        event.stop();
       });
     }
     
