@@ -4,6 +4,7 @@
 
 //= require app/config
 //= require app/utils
+//= require app/dispatcher
 
 //= require_tree ./app/models
 //= require_tree ./app/collections
