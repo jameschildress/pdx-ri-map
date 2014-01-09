@@ -3,7 +3,7 @@
 
 
 
-  App.QueryMapMarkerView = Backbone.View.extend({
+  App.AreaMapMarkerView = Backbone.View.extend({
   
     collection: App.Inspections
   

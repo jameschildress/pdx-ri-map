@@ -10,8 +10,8 @@
   , collection: App.Inspections
   
   , events: {
-      'change #pdxri-sort':  'sortInspections'
-    , 'click #pdxri-query':  'queryMap' 
+      'change #pdxri-sort' : 'sortInspections'
+    , 'click #pdxri-area'  : 'queryArea' 
     , 'click #pdxri-nearby': 'queryNearby' 
     }
     
@@ -19,28 +19,25 @@
       var self = this;
       
       this.$sortMenu     = this.$('#pdxri-sort'  );
-      this.$queryButton  = this.$('#pdxri-query' );
+      this.$areaButton   = this.$('#pdxri-area'  );
       this.$nearbyButton = this.$('#pdxri-nearby');
       
-      this.listenTo( this.collection, 'fetch'  , this.pending           );
-      this.listenTo( App.location   , 'seek'   , this.pending           );
-      this.listenTo( this.collection, 'filter' , this.queryComplete     );
-      this.listenTo( this.collection, 'filter' , this.queryComplete     );
-      this.listenTo( App.location   , 'change' , this.enableQueryButton );
+      this.listenTo( this.collection, 'fetch'  , this.disableButtons     );
+      this.listenTo( App.location   , 'seek'   , this.disableButtons     );
+      this.listenTo( this.collection, 'filter' , this.enableNearbyButton );
+      this.listenTo( App.location   , 'change' , this.enableAreaButton   );
     }
     
-    // Disable buttons while a query is pending
-  , pending: function(){
-      this.$queryButton.attr( 'disabled', true);
+  , disableButtons: function(){
+      this.$areaButton.attr( 'disabled', true);
       this.$nearbyButton.attr('disabled', true);
     }
     
-  , enableQueryButton: function(){
-      this.$queryButton.removeAttr('disabled');
+  , enableAreaButton: function(){
+      this.$areaButton.removeAttr('disabled');
     }
 
-  , queryComplete: function(){
-      // Enable the 'nearby' button when the query is done rendering
+  , enableNearbyButton: function(){
       this.$nearbyButton.removeAttr('disabled');
     }
     
@@ -49,7 +46,7 @@
       this.collection.sort();
     }
   
-  , queryMap: function(){
+  , queryArea: function(){
       var latLng = App.location.latLng;
       App.Router.navigate(
         'at/' + latLng.lat() + '/' + latLng.lng()

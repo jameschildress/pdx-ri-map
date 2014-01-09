@@ -48,7 +48,7 @@ $(function(){
   new App.InspectionsMapView();
   new App.InspectionsCountView();
   new App.ControlsView();
-  new App.QueryMapMarkerView();
+  new App.AreaMapMarkerView();
   
   Backbone.history.start();
   

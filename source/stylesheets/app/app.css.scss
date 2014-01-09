@@ -232,19 +232,8 @@ p {
   font-family: $font !important;
   background: $list-bg;
     
-  time {
+  p {
     margin: 0;
-    font-size: 15px;
-    font-weight: normal;
-    color: $text-color;
-  }
-  
-  &.current {
-    background: $active-item-color;
-    
-    p, time {
-      color: $active-text-color;
-    }
   }
     
   &.grade-A {
