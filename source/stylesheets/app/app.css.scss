@@ -251,3 +251,16 @@ p {
     }
   }
 }
+
+
+
+.pdxri-error {
+  background: #fee;
+  padding: $pad;
+  border-bottom: 1px solid $list-item-border;
+  
+  p {
+    margin: 0;
+    color: #f66;
+  }
+}
