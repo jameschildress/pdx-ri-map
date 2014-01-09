@@ -10,6 +10,7 @@ $(function(){
 
   App.Violations.on('fetch', function(Violations){
     console.debug("FETCH: Violations")
+    console.dir(Violations.models);
   }); 
   
   App.Inspections.on('reset', function(Inspections){
@@ -34,6 +35,11 @@ $(function(){
   App.location.on('found', function(latLng){
     var latLng = App.location.latLng;
     console.debug("LOCATION:", latLng.lat(), latLng.lng());
+  });
+  
+  App.location.on('error', function(msg){
+    var latLng = App.location.latLng;
+    console.error("ERROR:", msg);
   });
   
   
