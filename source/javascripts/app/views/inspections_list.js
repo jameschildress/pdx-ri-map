@@ -37,9 +37,11 @@
     }
     
   , error: function(message) {
+      var view = new App.ErrorMessageView({ message: message });
       this.$el
+        .empty()
         .removeClass('pending')
-        .html('<div class="pdxri-error"><p>' + message + '</p></div>');
+        .append(view.render().$el);
     }
       
   });

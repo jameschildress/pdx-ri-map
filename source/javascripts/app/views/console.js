@@ -61,7 +61,7 @@
     }
   
   , onLocationError: function(message) {
-      console.error("ERROR:", message);
+      console.debug("ERROR:", message);
     }
 
 
