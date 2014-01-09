@@ -24,8 +24,16 @@
       });
     }
     
-  , hide: function(){
+  , hide: function() {
       this.marker.setMap(null);
+    }
+    
+  , focus: function() {
+      this.marker.setAnimation(google.maps.Animation.BOUNCE);
+    }
+    
+  , blur: function() {
+      this.marker.setAnimation(null);
     }
   
   });

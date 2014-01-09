@@ -18,5 +18,10 @@
   
   
   
+  // Miscellaneous event dispatcher
+  App.events = _.clone(Backbone.Events);
+  
+  
+  
 }());
  
