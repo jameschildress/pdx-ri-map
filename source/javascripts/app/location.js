@@ -34,8 +34,6 @@
           msg = 'You have denied permission to get your current location.'
           break;
         case err.POSITION_UNAVAILABLE:
-          msg = 'Your current location could not be determined.'
-          break;
         case err.TIMEOUT:
           msg = 'Your current location could not be determined.'
           break;
