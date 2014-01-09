@@ -22,7 +22,7 @@
         , attrs = this.model.attributes;
       html += '<h2>' + attrs.restaurantName + '</h2>';
       html += '<h3>' + attrs.score + '%</h3>';
-      html += '<p>'  + attrs.streetAddress + '<br/>' + attrs.city + ', OR ' + attrs.zipCode + '</p>';
+      html += '<p>'  + attrs.streetAddress + '</p>';
       return html;
     }
     

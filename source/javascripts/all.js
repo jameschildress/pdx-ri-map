@@ -5,6 +5,7 @@
 //= require app/config
 //= require app/utils
 //= require app/location
+//= require app/markers
 
 //= require_tree ./app/models
 //= require_tree ./app/collections

@@ -33,6 +33,12 @@
         , fillColor:     '#0077cc'
         , fillOpacity:   0.2
         }
+      , icons: {
+          height: 35
+        , width:  22
+        , count:  6
+        , url:    './images/markers.png'
+        }
       }
     }
     
