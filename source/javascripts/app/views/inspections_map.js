@@ -11,7 +11,6 @@
   
   , render: function() {
       var i;
-      console.debug('RENDER: InspectionsMapView');
       for (i in this.collection.models) {
         this.addMarker(this.collection.models[i]);
       }
@@ -27,8 +26,8 @@
   , initialize: function() {
       this.markers = [];
       
-      this.listenTo(this.collection, 'fetch' , this.pending );
-      this.listenTo(this.collection, 'filter', this.render  );
+      this.listenTo( this.collection, 'fetch' , this.pending );
+      this.listenTo( this.collection, 'filter', this.render  );
       
       google.maps.event.addListener(App.map, 'click', function(event){
         App.location.set(event.latLng);   

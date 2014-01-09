@@ -2,7 +2,7 @@
 
 $list-width: 300px;
 $list-bg: #fff;
-$list-item-padding: 10px;
+$pad: 10px;
 $list-item-border: #ccc;
 $map-border: #888;
 $title-color: #777;
@@ -85,7 +85,7 @@ p {
 
 
 #pdxri-header {
-  padding: $list-item-padding;
+  padding: $pad;
   background: #f3f3f3;
     
   p {
@@ -111,7 +111,7 @@ p {
 
 #pdxri-count {
   margin: 0;
-  padding: $list-item-padding 0;
+  padding: $pad 0;
   background: $header-bg;
   
   p {
@@ -125,14 +125,18 @@ p {
 
 
 #pdxri-controls {
-  padding: $list-item-padding $list-item-padding $list-item-padding 0;
+  padding: $pad $pad $pad 0;
   border-bottom: 1px solid $list-item-border;
   border-top: 1px solid $list-item-border;
   background: $header-bg;
   
-  select {
-    width: 100%;
-    margin: 0 0 $list-item-padding $list-item-padding;
+  #pdxri-selects {
+    margin-left: $pad;
+
+    select {
+      width: 100%;
+      margin: 0 0 $pad 0;
+    }
   }
   
   #pdxri-buttons {
@@ -141,7 +145,7 @@ p {
     
     .pdxri-button {
       display: table-cell;
-      padding-left: $list-item-padding;  
+      padding-left: $pad;  
     }
     
     button {
@@ -184,7 +188,7 @@ p {
   
   .pdxri-list-item {
     border-bottom: 1px solid $list-item-border;
-    padding: $list-item-padding;    
+    padding: $pad;    
   }
 }
 
@@ -218,7 +222,7 @@ p {
   background: $list-bg;
     
   p {
-    margin: 0;
+    margin: 0 0 0 $pad;
   }
     
   &.grade-A {

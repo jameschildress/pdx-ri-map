@@ -11,7 +11,6 @@
   
   , render: function() {
       var listItems = [];
-      console.debug('RENDER: InspectionsListView');
       _.each(this.collection.models, function(inspection){
         var listItemView = new App.InspectionListItemView({ model: inspection });
         listItems.push(listItemView.render().$el);        

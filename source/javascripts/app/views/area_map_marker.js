@@ -16,9 +16,10 @@
   , initialize: function(options) {
       this.circle = new google.maps.Circle(App.config.map.circle);
 
-      this.listenTo( App.location, 'change', this.render );
-      this.listenTo( App.location, 'found' , this.render );
-      this.listenTo( App.location, 'seek'  , this.hide   );
+      this.listenTo( App.location    , 'change', this.render );
+      this.listenTo( App.location    , 'found' , this.render );
+      this.listenTo( App.location    , 'seek'  , this.hide   );
+      this.listenTo( this.collection , 'fetch' , this.hide   );
     }
     
   , hide: function(){
