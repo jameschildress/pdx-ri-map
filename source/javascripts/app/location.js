@@ -23,8 +23,10 @@
     }
     
   , set: function(latLng) {
-      this.latLng = latLng;
-      this.trigger('change', latLng);
+      if (App.config.map.bounds.contains(latLng)) {
+        this.latLng = latLng;
+        this.trigger('change', latLng);
+      }
     }
     
   , error: function(err) {
