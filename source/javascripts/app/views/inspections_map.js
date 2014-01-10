@@ -33,7 +33,9 @@
         this.addMarker(model);
         bounds.extend(model.latLng);
       }
-      App.map.fitBounds(bounds);
+      if (this.collection.length > 1) {
+        App.map.fitBounds(bounds);
+      }
       return this;
     }
 
