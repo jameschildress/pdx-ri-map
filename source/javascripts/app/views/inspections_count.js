@@ -24,9 +24,10 @@
     }
     
   , initialize: function() {
-      this.listenTo( this.collection , 'filter'       , this.render  );
-      this.listenTo( this.collection , 'fetch'        , this.pending );
-      this.listenTo( App.Router      , 'route:nearby' , this.pending );
+      this.listenTo( this.collection , 'filter' , this.render  );
+      this.listenTo( this.collection , 'fetch'  , this.pending );
+      this.listenTo( App.location    , 'seek'   , this.pending );
+      this.listenTo( App.Violations  , 'fetch'  , this.pending );
     }
   
   });
