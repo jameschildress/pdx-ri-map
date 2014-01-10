@@ -6,7 +6,7 @@
   
     %h1 PDX Restaurant Inspections
     
-    %p 
+    %p.no-mobile
       %a{ href: '#' } Instructions
       |
       %a{ href: '#' } Settings
@@ -26,7 +26,7 @@
     #pdxri-buttons      
       .pdxri-button
         %button#pdxri-nearby{ type: :button } Search Near Me
-      .pdxri-button
+      .pdxri-button.no-mobile
         %button#pdxri-area{ type: :button, disabled: true } Search in Area
   
 
@@ -37,6 +37,6 @@
 
 
 
-#pdxri-map-wrapper
+#pdxri-map-wrapper.no-mobile
 
   #pdxri-map

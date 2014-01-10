@@ -4,25 +4,24 @@
 
 #pdxri-header {
   padding: $pad;
-  background: #666;
-  color: #fff;
+  background: $header-bg;
   
   h1 {
-    color: #fff;
+    color: $title-color;
   }
     
   p {
-    color: #aaa;
+    color: $title-color;
     text-align: center;
     font-size: 13px;
   }
   
   a {
     text-decoration: none;
-    color: #eee;
+    color: $heading-color;
     
     &:hover {
-      color: #fff;
+      color: #09d;
     }
   }
 }
