@@ -1,0 +1,56 @@
+@import "variables";
+
+
+
+#pdxri-controls {
+  padding: $pad $pad $pad 0;
+  border-bottom: 1px solid $list-item-border;
+  border-top: 1px solid $list-item-border;
+  background: $header-bg;
+  
+  #pdxri-selects {
+    margin-left: $pad;
+
+    select {
+      width: 100%;
+      margin: 0 0 $pad 0;
+    }
+  }
+  
+  #pdxri-buttons {
+    display: table;
+    width: 100%;
+    
+    .pdxri-button {
+      display: table-cell;
+      padding-left: $pad;  
+    }
+    
+    button {
+      border: 1px solid $heading-color;
+      color: $heading-color;
+      background: #fff;
+      border-radius: 5px;
+      padding: 5px 0;
+      width: 100%;
+      font-size: 15px;
+      cursor: pointer;
+      
+      &:hover, &:focus {
+        background: #eef;
+      }
+      
+      &:active {
+        color: #05a;
+        border-color: #05a;
+      }
+      
+      &:disabled {
+        background: $header-bg;
+        color: #999;
+        border-color: #999;
+        cursor: default;
+      }
+    }
+  }
+}

@@ -1,5 +1,10 @@
 /*
+
  *= require vendor/normalize
- *= require app/app
+
+ *= require app/global
+ *= require app/list
+ *= require app/controls
+ *= require app/map
 
 */

@@ -1,0 +1,25 @@
+@import "variables";
+
+
+
+#pdxri-map-wrapper {
+  position: fixed;
+  left:   $list-width;
+  right:  0;
+  top:    0;
+  bottom: 0;
+  background: #000;
+  border-left: 1px solid $map-border;
+  
+  @media (max-width: $max-mobile-width) {
+    display: none;
+  }
+  
+  #pdxri-map {
+    height: 100%;
+  
+    .pdxri-list-item {
+      white-space: nowrap;
+    }
+  }
+}
