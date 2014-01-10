@@ -21,7 +21,7 @@
       this.icon = App.markerIcons[this.model.grade];
       this.marker = new google.maps.Marker({
         position: this.model.latLng
-      , title:    this.model.get('restaurantName')
+      , title:    this.model.escape('restaurantName')
       , icon:     this.icon
       });
     }

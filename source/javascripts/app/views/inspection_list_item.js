@@ -19,10 +19,9 @@
   
   , template: function() {
       var html = ''
-        , attrs = this.model.attributes;
-      html += '<h2>' + attrs.restaurantName + '</h2>';
-      html += '<h3>' + attrs.score + '%</h3>';
-      html += '<p>'  + attrs.streetAddress + '</p>';
+      html += '<h2>' + this.model.escape('restaurantName') + '</h2>';
+      html += '<h3>' + this.model.escape('score') + '%</h3>';
+      html += '<p>'  + this.model.escape('streetAddress') + '</p>';
       return html;
     }
     
