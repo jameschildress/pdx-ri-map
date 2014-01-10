@@ -10,15 +10,13 @@
   , collection: App.Inspections
   
   , render: function() {
-      var listItems = [];
-      _.each(this.collection.models, function(inspection){
-        var listItemView = new App.InspectionListItemView({ model: inspection });
-        listItems.push(listItemView.render().$el);        
+      var items = _.map(this.collection.models, function(model){
+        return new App.InspectionListItemView({ model: model }).render().$el;
       });
       this.$el
         .empty()
         .removeClass('pending')
-        .append(listItems);
+        .append(items);
       return this;
     }
 
