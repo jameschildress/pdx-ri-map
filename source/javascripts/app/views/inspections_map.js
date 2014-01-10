@@ -13,8 +13,8 @@
       this.markers = [];
                                      
       this.listenTo( this.collection , 'fetch'            , this.removeMarkers );
-      this.listenTo( this.collection , 'filter'           , this.resetMarkers  );
-      this.listenTo( this.collection , 'sort'             , this.resetMarkers  );
+      this.listenTo( this.collection , 'filter'           , this.render        );
+      this.listenTo( this.collection , 'sort'             , this.render        );
       this.listenTo( App.events      , 'inspection:focus' , this.focusMarker   );
       this.listenTo( App.events      , 'inspection:blur'  , this.blurMarker    );
     
@@ -23,12 +23,17 @@
       });
     }
   
-  , resetMarkers: function() {
-      var i;
+  , render: function() {
+      var i
+        , model
+        , bounds = new google.maps.LatLngBounds();
       this.removeMarkers();
       for (i in this.collection.models) {
-        this.addMarker(this.collection.models[i]);
+        model = this.collection.models[i];
+        this.addMarker(model);
+        bounds.extend(model.latLng);
       }
+      App.map.fitBounds(bounds);
       return this;
     }
 

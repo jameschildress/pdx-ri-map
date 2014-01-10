@@ -20,7 +20,7 @@
   , initialize: function(options) {
       this.icon = App.markerIcons[App.config.grades.indexOf(this.model.get('grade'))];
       this.marker = new google.maps.Marker({
-        position: new google.maps.LatLng(this.model.get('latitude'), this.model.get('longitude'))
+        position: this.model.latLng
       , title:    this.model.get('restaurantName')
       , icon:     this.icon
       });
@@ -32,10 +32,12 @@
     
   , focus: function() {
       this.marker.setIcon(_.last(App.markerIcons));
+      this.marker.setAnimation(google.maps.Animation.BOUNCE);
     }
     
   , blur: function() {
       this.marker.setIcon(this.icon);
+      this.marker.setAnimation(null);
     }
   
   });

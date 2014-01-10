@@ -35,6 +35,7 @@
     
   , initialize: function() {
       this.setGrade();
+      this.latLng = new google.maps.LatLng(this.get('latitude'), this.get('longitude'));
       // Add Backbone-generated CID to attributes for easy sorting by distance,
       // since results are returned in distance-sorted order
       this.set('cid', this.cid);
