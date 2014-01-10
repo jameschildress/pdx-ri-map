@@ -4,21 +4,25 @@
 
 #pdxri-header {
   padding: $pad;
-  background: #f3f3f3;
+  background: #666;
+  color: #fff;
+  
+  h1 {
+    color: #fff;
+  }
     
   p {
-    color: $title-color;
+    color: #aaa;
     text-align: center;
+    font-size: 13px;
   }
   
   a {
     text-decoration: none;
-    color: $title-color;
-    border-bottom: 1px dotted $title-color;
+    color: #eee;
     
     &:hover {
-      color: $heading-color;
-      border-color: $heading-color;
+      color: #fff;
     }
   }
 }
@@ -123,5 +127,6 @@
   p {
     color: #b00;
     font-weight: 500;
+    font-size: 14px;
   }
 }
