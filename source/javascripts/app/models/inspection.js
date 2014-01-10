@@ -21,7 +21,7 @@
   , parse: function(response) {
       return {
         id:             parseInt(response.inspection_number)
-      , restaurantName: response.name.trim()
+      , restaurantName: (response.name || response.restaurant_name).trim()
       , streetAddress:  response.address.street.trim()
       , city:           response.address.city.trim()
       , zipCode:        response.address.zip.trim()

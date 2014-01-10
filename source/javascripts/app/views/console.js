@@ -26,6 +26,7 @@
     
   , onViolationsReset: function(Violations) {
       console.debug("RESET: Violations");
+      console.dir(Violations.inspection);    
       console.dir(Violations.models);    
     }
 

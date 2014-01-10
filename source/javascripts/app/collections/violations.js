@@ -9,6 +9,10 @@
   , url:   App.config.proxy.url
   
   , parse: function(response) {
+      // Probably the wrong place to do this, but it works, so...
+      // Instantiate the Inspection to which these Violations belong,
+      // since the Inspection data is included in the response results
+      this.inspection = new App.Inspection(response.results, { parse: true });
       return response.results.violations;
     }
   
