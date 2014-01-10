@@ -8,7 +8,7 @@
     tagName:   'div'
     
   , className: function(){
-      return 'pdxri-list-item grade-' + this.model.get('grade');
+      return 'pdxri-list-item grade-' + this.model.grade;
     }
     
   , events: {

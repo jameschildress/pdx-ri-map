@@ -18,10 +18,13 @@
         url: 'http://pdxri.childr.es/'
       , dataType: 'jsonp'
       , maxResults: 500
-    }
+      }
       
-    , grades: ['A', 'B', 'C', 'D', 'F']
-    , pointsPerGrade: 5
+    , grades: {
+        count: 5
+      , span:  5  // percentage points per grade
+      , max:   100
+      }
     
     , map: {
         divID: 'pdxri-map'

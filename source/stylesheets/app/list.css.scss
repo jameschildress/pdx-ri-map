@@ -86,27 +86,27 @@
   font-family: $font !important;
   background: $list-bg;
     
-  &.grade-A {
+  &.grade-0 {
     h3 {
       color: #3a3;
     }
   }
-  &.grade-B {
+  &.grade-1 {
     h3 {
       color: #9a0;
     }
   }
-  &.grade-C {
+  &.grade-2 {
     h3 {
       color: #da0;
     }
   }
-  &.grade-D {
+  &.grade-3 {
     h3 {
       color: #d60;
     }
   }
-  &.grade-F {
+  &.grade-4 {
     h3 {
       color: #b00;
     }

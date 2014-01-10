@@ -18,7 +18,7 @@
     }
     
   , initialize: function(options) {
-      this.icon = App.markerIcons[App.config.grades.indexOf(this.model.get('grade'))];
+      this.icon = App.markerIcons[this.model.grade];
       this.marker = new google.maps.Marker({
         position: this.model.latLng
       , title:    this.model.get('restaurantName')

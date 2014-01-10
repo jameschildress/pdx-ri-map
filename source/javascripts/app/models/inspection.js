@@ -44,22 +44,20 @@
     // Set the 'grade' attribute based on the inspection score
   , setGrade: function() {
       var grades = App.config.grades
-        , span   = App.config.pointsPerGrade
-        , length = grades.length
         , score  = this.get('score')
-        , max    = 100
-        , min    = max - span
+        , max    = grades.max
+        , min    = max - grades.span
         , i;
-      for (i in grades) {
+      for (i = 0; i < grades.count; i += 1) {
         if (score > min && score <= max) {
-          this.set('grade', grades[i]);
+          this.grade = i;
           return;
         } else {
           max = min;
-          min = max - span;
+          min = max - grades.span;
         }
       }
-      this.set('grade', grades[length - 1]);
+      this.grade = grades.count - 1;
     }
     
   });
