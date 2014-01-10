@@ -14,6 +14,10 @@
       ].join('-');
     }
     
+  , searchRadiusInMeters: function() {
+      return App.settings.searchRadius / 0.00062137;
+    }
+    
   }
   
   

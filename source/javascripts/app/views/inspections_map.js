@@ -6,15 +6,14 @@
   App.InspectionsMapView = Backbone.View.extend({
   
     collection: App.Inspections
-  
-  
 
   , initialize: function() {
       this.markers = [];
+      this.bounds = App.config.map.bounds;
                                      
       this.listenTo( this.collection , 'fetch'            , this.removeMarkers );
-      this.listenTo( this.collection , 'filter'           , this.render        );
-      this.listenTo( this.collection , 'sort'             , this.render        );
+      this.listenTo( this.collection , 'filter'           , this.resetAndZoom  );
+      this.listenTo( this.collection , 'sort'             , this.resetMarkers  );
       this.listenTo( App.events      , 'inspection:focus' , this.focusMarker   );
       this.listenTo( App.events      , 'inspection:blur'  , this.blurMarker    );
     
@@ -23,21 +22,27 @@
       });
     }
   
-  , render: function() {
-      var i
-        , model
-        , bounds = new google.maps.LatLngBounds();
+  
+  
+  , resetMarkers: function() {
+      var i, model;
+      this.bounds = new google.maps.LatLngBounds();
       this.removeMarkers();
       for (i in this.collection.models) {
         model = this.collection.models[i];
         this.addMarker(model);
-        bounds.extend(model.latLng);
+        this.bounds.extend(model.latLng);
       }
-      if (this.collection.length > 1) {
-        App.map.fitBounds(bounds);
-      }
-      return this;
     }
+    
+  , resetAndZoom: function() {
+      this.resetMarkers();
+      if (this.collection.length > 1 && App.settings.zoomToResults) {
+        App.map.fitBounds(this.bounds);
+      }
+    }
+
+
 
   , removeMarkers: function() {
       var i = this.markers.length;

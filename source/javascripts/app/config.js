@@ -18,8 +18,7 @@
         url: 'http://pdxri.childr.es/'
       , dataType: 'jsonp'
       , maxResults: 500
-      , maxDistance: 0.5
-      }
+    }
       
     , grades: ['A', 'B', 'C', 'D', 'F']
     , pointsPerGrade: 5
@@ -34,8 +33,7 @@
         , streetViewControl: false
         }
       , circle: {
-          radius: 0.5 / 0.00062137  // convert maxDistance to meters
-        , strokeColor:   '#0077cc'
+          strokeColor:   '#0077cc'
         , strokeOpacity: 0.5
         , strokeWeight:  1
         , fillColor:     '#0077cc'
@@ -49,6 +47,13 @@
         }
       }
     }
+    
+    
+    
+  , settings: {
+      zoomToResults: true
+    , searchRadius:  0.5 // miles
+    }    
     
   };
 
