@@ -18,9 +18,11 @@
     }
     
   , initialize: function(options) {
+      this.icon = App.markerIcons[App.config.grades.indexOf(this.model.get('grade'))];
       this.marker = new google.maps.Marker({
         position: new google.maps.LatLng(this.model.get('latitude'), this.model.get('longitude'))
       , title:    this.model.get('restaurantName')
+      , icon:     this.icon
       });
     }
     
@@ -29,11 +31,11 @@
     }
     
   , focus: function() {
-      this.marker.setAnimation(google.maps.Animation.BOUNCE);
+      this.marker.setIcon(_.last(App.markerIcons));
     }
     
   , blur: function() {
-      this.marker.setAnimation(null);
+      this.marker.setIcon(this.icon);
     }
   
   });
