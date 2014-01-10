@@ -1,5 +1,12 @@
 (function(){
   'use strict';
+  
+  
+  
+  var bounds = new google.maps.LatLngBounds(
+    new google.maps.LatLng(45.4146, -122.8501)
+  , new google.maps.LatLng(45.6667, -122.4476)
+  );
 
 
 
@@ -19,10 +26,11 @@
     
     , map: {
         divID: 'pdxri-map'
+      , bounds: bounds
       , options: {
           zoom:    12
         , minZoom: 11
-        , center:  new google.maps.LatLng(45.5278, -122.5702)
+        , center: bounds.getCenter()
         , streetViewControl: false
         }
       , circle: {
