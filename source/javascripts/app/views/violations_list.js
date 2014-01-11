@@ -24,7 +24,7 @@
 
   , initialize: function() {
       this.listenTo( this.collection , 'fetch' , this.pending );
-      this.listenTo( this.collection , 'reset' , this.render  );
+      this.listenTo( this.collection , 'filter' , this.render  );
     }
       
   , pending: function() {

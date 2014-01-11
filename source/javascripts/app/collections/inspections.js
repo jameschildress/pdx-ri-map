@@ -40,7 +40,7 @@
     
     // Reset the collection with only the latest inspection for each unique restaurant name
     // Ignore inspections with a score of zero
-  , filterLatestUniquePerRestaurant: function() {
+  , keepLatestPerRestaurant: function() {
       var hash = {};
       _.each(this.models, function(inspection){
         var name  = inspection.get('restaurantName')
@@ -55,7 +55,7 @@
     }
     
   , initialize: function(){
-      this.on('reset', this.filterLatestUniquePerRestaurant, this);
+      this.on('reset', this.keepLatestPerRestaurant, this);
     }
 
   });

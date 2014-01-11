@@ -6,5 +6,6 @@
  *= require app/list
  *= require app/controls
  *= require app/map
+ *= require app/detail
 
 */

@@ -82,35 +82,10 @@
 }
 
 .pdxri-list-item {
+  @include grades;
   cursor: pointer;
   font-family: $font !important;
   background: $list-bg;
-    
-  &.grade-0 {
-    h3 {
-      color: #3a3;
-    }
-  }
-  &.grade-1 {
-    h3 {
-      color: #9a0;
-    }
-  }
-  &.grade-2 {
-    h3 {
-      color: #da0;
-    }
-  }
-  &.grade-3 {
-    h3 {
-      color: #d60;
-    }
-  }
-  &.grade-4 {
-    h3 {
-      color: #b00;
-    }
-  }
 }
 
 

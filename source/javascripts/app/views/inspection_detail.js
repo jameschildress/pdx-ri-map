@@ -7,7 +7,9 @@
   
     tagName:   'div'
     
-  , className: 'pdxri-detail'
+  , className: function(){
+      return 'pdxri-detail grade-' + this.model.grade;
+    }
   
   , template: function() {
       var html = ''

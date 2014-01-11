@@ -32,6 +32,21 @@
       , reset: true
       });
     }
+    
+    // Reset the collection with non-commented and non-correction violations removed
+    // This removes compliance notes and leaves only the juicy stuff
+  , keepOnlyWithComments: function() {
+      var filtered = _.filter(this.models, function(model){
+        return model.get('comment').length > 0 && model.get('correction').length > 0;
+      });
+      this.reset(filtered, { silent: true });
+      this.trigger('filter', this);
+    }
+    
+  , initialize: function(){
+      this.on('reset', this.keepOnlyWithComments, this);
+    }
+    
 
   });
   
