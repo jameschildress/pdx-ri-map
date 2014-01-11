@@ -14,8 +14,24 @@
       ].join('-');
     }
     
-  , searchRadiusInMeters: function() {
-      return App.settings.searchRadius / 0.00062137;
+  , htmlTag: function(tag, content, attr_hash) {
+      var html = '';
+      if (attr_hash) {
+        html += '<' + tag;
+        _.each(attr_hash, function(k, v){
+          html += ' ' + v + '="' + k + '"';
+        });
+        html += '>';
+      } else {
+        html += '<' + tag + '>';
+      }
+      html += content;
+      html += '</' + tag + '>';
+      return html;
+    }
+    
+  , milesToMeters: function(miles) {
+      return miles / 0.00062137;
     }
     
   }

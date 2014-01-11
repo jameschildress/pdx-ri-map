@@ -10,7 +10,7 @@
   , className: 'pdxri-error'
   
   , template: function() {
-      return '<p>' + this.message + '</p>';
+      return App.utils.htmlTag('p', this.message);
     }
     
   , render: function() {

@@ -8,7 +8,7 @@
     collection: App.Inspections
   
   , render: function() {
-      this.circle.setRadius(App.utils.searchRadiusInMeters());
+      this.circle.setRadius(App.utils.milesToMeters(App.settings.searchRadius));
       this.circle.setCenter(App.location.latLng);
       this.circle.setMap(App.map); 
       return this;

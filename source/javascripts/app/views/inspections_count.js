@@ -11,7 +11,7 @@
   
   , template: function() {
       var size = this.collection.length;
-      return '<p>' + size + ' result' + (size == 1 ? '' : 's') + '</p>';
+      return App.utils.htmlTag('p', size + ' result' + (size == 1 ? '' : 's'));
     }
   
   , render: function() {

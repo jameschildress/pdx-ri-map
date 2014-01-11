@@ -19,9 +19,10 @@
   
   , template: function() {
       var html = ''
-      html += '<h2>' + this.model.escape('restaurantName') + '</h2>';
-      html += '<h3>' + this.model.escape('score') + '%</h3>';
-      html += '<p>'  + this.model.escape('streetAddress') + '</p>';
+        , t = App.utils.htmlTag;
+      html += t('h3', this.model.escape('score') + '%'   );
+      html += t('h2', this.model.escape('restaurantName'));
+      html += t('p' , this.model.escape('streetAddress') );
       return html;
     }
     
