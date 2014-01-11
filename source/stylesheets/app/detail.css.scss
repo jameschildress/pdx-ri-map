@@ -2,8 +2,30 @@
 
 
 
-
 .pdxri-detail {
   @include grades;
+  background: #fff;
+  padding: $pad;
 
+  h2 {
+    color: #666;
+  }
+  
+    
+}
+
+
+
+.pdxri-violation {
+  padding: 0 $pad $pad $pad;
+  background: #fff;
+  
+  &:last-child {
+    border-bottom: 1px solid $list-item-border;
+  }
+  
+  p {
+    margin-left: $pad;
+    text-transform: lowercase;
+  }
 }

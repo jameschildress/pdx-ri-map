@@ -12,7 +12,6 @@
   p {
     color: $title-color;
     text-align: center;
-    font-size: 13px;
   }
   
   a {
@@ -60,23 +59,18 @@
   }
 
   .pdxri-list-item {
+
     &:hover {
       background: #eef;
     }
-
-    h2 {
-      display: block;
-      float: left;
-      width: 220px;
-    }
   
     h3 {
-      display: block;
       float: right;
+      margin-left: 20px;
     }
     
     p {
-      margin: 0 0 0 $pad;
+      margin-left: $pad;
     }
   }
 }
@@ -99,6 +93,5 @@
   p {
     color: #b00;
     font-weight: 500;
-    font-size: 14px;
   }
 }
