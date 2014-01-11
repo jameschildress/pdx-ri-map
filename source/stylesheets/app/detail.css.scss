@@ -4,7 +4,7 @@
 
 .pdxri-detail, .pdxri-violation {
   padding: $pad;
-  border-bottom: 1px solid $list-item-border;
+  border-bottom: 1px dashed $list-item-border;
 
   p {
     margin-left: $pad;
@@ -30,6 +30,10 @@
 
 .pdxri-violation {
   background: #fffff5;
+  
+  &:last-child {
+    border-bottom-style: solid;
+  }
   
   h4 {
     color: #944;
