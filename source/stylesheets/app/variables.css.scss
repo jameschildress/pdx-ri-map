@@ -25,27 +25,27 @@ $line-height: 1.2;
 
 @mixin grades {
   &.grade-0 {
-    h3 {
+    .grade {
       color: #3a3;
     }
   }
   &.grade-1 {
-    h3 {
+    .grade {
       color: #9a0;
     }
   }
   &.grade-2 {
-    h3 {
+    .grade {
       color: #da0;
     }
   }
   &.grade-3 {
-    h3 {
+    .grade {
       color: #d60;
     }
   }
   &.grade-4 {
-    h3 {
+    .grade {
       color: #b00;
     }
   }

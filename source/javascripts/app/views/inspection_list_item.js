@@ -20,7 +20,7 @@
   , template: function() {
       var html = ''
         , t = App.utils.htmlTag;
-      html += t('h3', this.model.escape('score') + '%'   );
+      html += t('h3', this.model.escape('score') + '%', { class: 'grade' });
       html += t('h2', this.model.escape('restaurantName'));
       html += t('p' , this.model.escape('streetAddress') );
       return html;
