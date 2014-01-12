@@ -5,7 +5,7 @@
 
   App.ViolationsListView = Backbone.View.extend({
   
-    el: '#pdxri-list'
+    el: '#pdxri-main'
     
   , collection: App.Violations
   

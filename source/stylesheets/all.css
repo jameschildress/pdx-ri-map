@@ -3,6 +3,7 @@
  *= require vendor/normalize
 
  *= require app/global
+ *= require app/main
  *= require app/list
  *= require app/controls
  *= require app/map

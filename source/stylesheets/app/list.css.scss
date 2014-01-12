@@ -2,63 +2,9 @@
 
 
 
-#pdxri-header {
-  padding: $pad;
-  
-  h1 {
-    color: $title-color;
-  }
-    
-  p {
-    color: $title-color;
-    text-align: center;
-  }
-  
-  a {
-    text-decoration: none;
-    color: $heading-color;
-    
-    &:hover {
-      color: #09d;
-    }
-  }
-}
+#pdxri-main {
 
-
-
-#pdxri-count {
-  padding: $pad 0;
-  
-  p {
-    font-size: $heading-font-size;
-    color: $title-color;
-    text-align: center;
-  }
-}
-
-#pdxri-info {
-  width: $list-width;
-  
-  @media (max-width: $max-mobile-width) {
-    width: auto;
-  }
-  
-  .pdxri-list-item {
-    border-bottom: 1px solid $list-item-border;
-    padding: $pad;    
-  }
-}
-
-#pdxri-list {
-
-  &.pending {
-    height: 100px;
-    background-image: url(../images/pending.gif);
-    background-position: center center;
-    background-repeat: no-repeat;
-  }
-
-  .pdxri-list-item {
+  .pdxri-item {
 
     &:hover {
       background: #eef;
@@ -75,7 +21,9 @@
   }
 }
 
-.pdxri-list-item {
+
+
+.pdxri-item {
   @include grades;
   cursor: pointer;
   font-family: $font !important;
@@ -85,7 +33,7 @@
 
 
 .pdxri-error {
-  background: #fea;
+  background: #fee;
   padding: $pad;
   border-bottom: 1px solid $list-item-border;
   text-align: center;

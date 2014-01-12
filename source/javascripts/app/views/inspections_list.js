@@ -5,7 +5,7 @@
 
   App.InspectionsListView = Backbone.View.extend({
   
-    el: '#pdxri-list'
+    el: '#pdxri-main'
     
   , collection: App.Inspections
   
