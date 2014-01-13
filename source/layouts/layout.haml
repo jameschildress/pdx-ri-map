@@ -18,6 +18,14 @@
     %meta{ name: 'contactdata:website' , content: 'https://github.com/jameschildress' }/
     
     = stylesheet_link_tag :all
+    
+    
+    
+    - %w( about instructions settings ).each do |template|
+      %script{ type: 'text/template', id: "pdxri-template-#{template}" }
+        = partial "templates/#{template}"
+    
+    
         
   %body
   
