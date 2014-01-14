@@ -21,7 +21,7 @@
     
     
     
-    - %w( about instructions settings ).each do |template|
+    - %w( about help settings ).each do |template|
       %script{ type: 'text/template', id: "pdxri-template-#{template}" }
         = partial "templates/#{template}"
     

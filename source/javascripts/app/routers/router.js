@@ -6,9 +6,24 @@
   var Router = Backbone.Router.extend({
 
     routes: {
-      "at/:lat/:lng": "at"
-    , "view/:id":     "view"
-    , "nearby":       "nearby"
+      ""             : "help"
+      "about"        : "about"
+      "settigs"      : "settings"
+    , "at/:lat/:lng" : "at"
+    , "view/:id"     : "view"
+    , "nearby"       : "nearby"
+    
+    
+  , help: function() {
+      App.HelpView.render();
+    }
+
+  , about: function() {
+      App.AboutView.render();
+    }
+
+  , settings: function() {
+      App.SettingsView.render();
     }
 
   , at: function(lat, lng) {
