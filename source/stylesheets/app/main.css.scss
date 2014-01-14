@@ -21,6 +21,11 @@
     &:hover {
       color: #09d;
     }
+    
+    &.current {
+      color: #666 !important;
+      cursor: default;
+    }
   }
 }
 

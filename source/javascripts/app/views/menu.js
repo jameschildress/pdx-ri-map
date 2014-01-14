@@ -7,14 +7,14 @@
     , selectorPrefix = '#pdxri-nav-'
     , events = {};
     
-    // Generate link-clicking events hash
-    _.each(links, function(link){
-      events['click ' + selectorPrefix + link] = function(){
-        App.Router.navigate(link, { trigger: true });
-        return false;
-      };
-    });
-  
+  // Generate link-clicking events hash
+  _.each(links, function(link){
+    events['click ' + selectorPrefix + link] = function(){
+      App.Router.navigate(link, { trigger: true });
+      return false;
+    };
+  });
+
 
 
   App.MenuView = Backbone.View.extend({
@@ -23,27 +23,25 @@
     
   , events: events
 
-  , setCurrentLink: function(link) {
-      this.$links.removeClass('current');
-      this.linksByName[link].addClass('current');
-    }
-            
   , initialize: function(){
     
-      var self = this;
-      
       this.$links = this.$el.find('a');
       
-      this.linksByName = {};
-      
+      this.linksByName = {};      
       _.each(links, function(link){
-        self.linksByName[link] = $(selectorPrefix + link);
-        self.listenTo( App.Router , 'route:' + link , function(){
-          self.setCurrentLink(link);
-        });
-      });
+        this.linksByName[link] = $(selectorPrefix + link);
+      }, this);
+      
+      this.listenTo( App.Router , 'route' , this.setCurrentLink );
       
     }
+    
+  , setCurrentLink: function(route) {
+      this.$links.removeClass('current');
+      if (this.linksByName[route]) {
+        this.linksByName[route].addClass('current');
+      }
+    }  
     
   });
  
