@@ -6,20 +6,25 @@
   App.ConsoleView = Backbone.View.extend({
   
     initialize: function(options) {
-      this.listenTo( App.Violations  , 'reset'        , this.onViolationsReset   );
-      this.listenTo( App.Violations  , 'fetch'        , this.onViolationsFetch   );                    
-
-      this.listenTo( App.Inspections , 'reset'        , this.onInspectionsReset  );
-      this.listenTo( App.Inspections , 'fetch'        , this.onInspectionsFetch  );
-      this.listenTo( App.Inspections , 'filter'       , this.onInspectionsFilter );
-      this.listenTo( App.Inspections , 'sort'         , this.onInspectionsSort   );
-
-      this.listenTo( App.location    , 'found'        , this.onLocationFound     );
-      this.listenTo( App.location    , 'error'        , this.onLocationError     );
-
-      this.listenTo( App.Router      , 'route:at'     , this.onRouteToAt         );
-      this.listenTo( App.Router      , 'route:view'   , this.onRouteToView       );
-      this.listenTo( App.Router      , 'route:nearby' , this.onRouteToNearby     );
+      var self = this;
+      
+      this.listenTo( App.Violations  , 'reset'         , this.onViolationsReset   );
+      this.listenTo( App.Violations  , 'fetch'         , this.onViolationsFetch   );                    
+                                                       
+      this.listenTo( App.Inspections , 'reset'         , this.onInspectionsReset  );
+      this.listenTo( App.Inspections , 'fetch'         , this.onInspectionsFetch  );
+      this.listenTo( App.Inspections , 'filter'        , this.onInspectionsFilter );
+      this.listenTo( App.Inspections , 'sort'          , this.onInspectionsSort   );
+                                                       
+      this.listenTo( App.location    , 'found'         , this.onLocationFound     );
+      this.listenTo( App.location    , 'error'         , this.onLocationError     );
+                                                       
+      this.listenTo( App.Router      , 'route:at'      , this.onRouteToAt         );
+      this.listenTo( App.Router      , 'route:view'    , this.onRouteToView       );
+      
+      _.each(['nearby', 'about', 'help', 'settings'], function(route){
+        self.listenTo( App.Router , 'route:' + route , function(){ self.onRouteTo(route) });        
+      });
     }
 
 
@@ -75,8 +80,8 @@
       console.debug("ROUTE: view/:id, id = " + id);
     }
 
-  , onRouteToNearby: function() {
-      console.debug("ROUTE: nearby");
+  , onRouteTo: function(route) {
+      console.debug("ROUTE: " + route);
     }
       
   });

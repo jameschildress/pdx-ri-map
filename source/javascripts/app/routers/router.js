@@ -7,8 +7,9 @@
 
     routes: {
       ""             : "help"
+    , "help"         : "help"
     , "about"        : "about"
-    , "settings"      : "settings"
+    , "settings"     : "settings"
     , "at/:lat/:lng" : "at"
     , "view/:id"     : "view"
     , "nearby"       : "nearby"
