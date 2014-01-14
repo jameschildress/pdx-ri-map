@@ -7,23 +7,23 @@
 
     routes: {
       ""             : "help"
-      "about"        : "about"
-      "settigs"      : "settings"
+    , "about"        : "about"
+    , "settings"      : "settings"
     , "at/:lat/:lng" : "at"
     , "view/:id"     : "view"
     , "nearby"       : "nearby"
-    
+    }
     
   , help: function() {
-      App.HelpView.render();
+      (new App.HelpView).render();
     }
 
   , about: function() {
-      App.AboutView.render();
+      (new App.AboutView).render();
     }
 
   , settings: function() {
-      App.SettingsView.render();
+      (new App.SettingsView).render();
     }
 
   , at: function(lat, lng) {
