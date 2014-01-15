@@ -18,6 +18,7 @@
                                                        
       this.listenTo( App.location    , 'found'         , this.onLocationFound     );
       this.listenTo( App.location    , 'error'         , this.onLocationError     );
+      this.listenTo( App.location    , 'history'       , this.onLocationHistory   );
                                                        
       this.listenTo( App.Router      , 'route:at'      , this.onRouteToAt         );
       this.listenTo( App.Router      , 'route:view'    , this.onRouteToView       );
@@ -65,23 +66,27 @@
   , onLocationFound: function(latLng) {
       console.debug("LOCATION:", latLng.lat(), latLng.lng());
     }
+
+  , onLocationHistory: function(latLng) {
+      console.log("LOCATION HISTORY:", latLng.lat(), latLng.lng());
+    }
   
   , onLocationError: function(message) {
-      console.debug("ERROR:", message);
+      console.warn("LOCATION ERROR:", message);
     }
 
 
 
   , onRouteToAt: function(lat, lng) {
-      console.debug("ROUTE: at/:lat/:lng, lat = " + lat + ", lng = " + lng);
+      console.debug("ROUTE: at/:lat/:lng", lat, lng);
     }
 
   , onRouteToView: function(id) {
-      console.debug("ROUTE: view/:id, id = " + id);
+      console.debug("ROUTE: view/:id", id);
     }
 
   , onRouteTo: function(route) {
-      console.debug("ROUTE: " + route);
+      console.debug("ROUTE:", route);
     }
       
   });

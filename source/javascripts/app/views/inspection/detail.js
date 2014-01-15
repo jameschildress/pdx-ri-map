@@ -19,7 +19,7 @@
       var t = App.utils.htmlTag
         , date = this.model.get('date')
         , html = '';
-      if (App.location.latLng) {
+      if (App.location.historyLatLng) {
         html += t('a',
           t('span', 'close'),
           { id: 'pdxri-close', href: '#', title: 'close' });
@@ -55,7 +55,7 @@
     
     
   , returnToLocation: function(){
-      var latLng = App.location.latLng;
+      var latLng = App.location.historyLatLng;
       App.Router.navigate(
         'at/' + latLng.lat() + '/' + latLng.lng()
       , { trigger: true } 

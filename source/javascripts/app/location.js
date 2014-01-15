@@ -6,8 +6,7 @@
   App.location = {
     
     latLng: null
-    
-    // TODO: raise event when location API does not exist
+
   , detect: function(onSuccess) {
       var self = this;
       self.trigger('seek');
@@ -44,6 +43,21 @@
           break;
       }
       App.location.trigger('error', msg);
+    }
+    
+    
+
+    // Call this after the collections have been loaded
+    // Begins history-tracking for when closing a InspectionDetailsView
+  , initialize: function() {
+      this.listenTo( App.Inspections , 'fetch' , this.updateHistory );
+    }
+    
+  , historyLatLng: null
+    
+  , updateHistory: function() {
+      this.historyLatLng = this.latLng;
+      this.trigger('history', this.historyLatLng);
     }
     
   }
