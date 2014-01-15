@@ -1,11 +1,11 @@
-separate infoWindow and listItem templates 
-
-refactor 'grade' to integer and remove grade array from config
+App.location history for when closing detail view
 
 handle AJAX errors
 
-check is geolocation is within Portland bounds
-
 hide non-Portland area on map
 
-instructions
+help
+
+about
+
+settings

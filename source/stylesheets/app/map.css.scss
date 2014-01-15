@@ -14,8 +14,26 @@
   #pdxri-map {
     height: 100%;
   
-    .pdxri-item {
-      white-space: nowrap;
+    .pdxri-info-window {
+      @include grades;
+      font-family: $font !important;
+      
+      h2 {
+        color: #333;
+      }
+      
+      a#pdxri-details-link {
+        font-weight: normal !important;
+        font-family: $font !important;
+        color: $link-color !important;
+        cursor: pointer;
+        display: block;
+        margin-top: $pad;
+        
+        &:hover {
+          color: $link-hover-color !important;
+        }
+      }
     }
   }
 }

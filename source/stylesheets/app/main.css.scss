@@ -16,14 +16,14 @@
   
   a {
     text-decoration: none;
-    color: $heading-color;
+    color: $link-color;
     
     &:hover {
-      color: #09d;
+      color: $link-hover-color;
     }
     
     &.current {
-      color: #666 !important;
+      color: $text-color !important;
       cursor: default;
     }
   }
@@ -46,7 +46,7 @@
   
   a {
     text-decoration: none;
-    color: $heading-color;
+    color: $link-color;
     
     &:hover {
       color: #09d;

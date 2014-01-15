@@ -3,8 +3,9 @@ $list-width:       300px;
 $pad:              10px ;
 
 $title-color:      #777 ;
-$heading-color:    #07c ;
 $text-color:       #666 ;
+$link-color:       #07c ;
+$link-hover-color: #09d ;
                    
 $header-bg:        #f5f5f5 ;
 $list-bg:          #fff ;
@@ -12,7 +13,7 @@ $list-bg:          #fff ;
 $list-item-border: #ccc ;
 $map-border:       #888 ;
 
-$active-item-color:    $heading-color ;
+$active-item-color:    $link-color ;
 $active-text-color:    #fff ;
 $active-heading-color: #fff ;
 

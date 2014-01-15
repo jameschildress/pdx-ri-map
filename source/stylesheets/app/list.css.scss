@@ -2,32 +2,23 @@
 
 
 
-#pdxri-main {
-
-  .pdxri-item {
-
-    &:hover {
-      background: #eef;
-    }
-  
-    h3 {
-      float: right;
-      margin-left: 20px;
-    }
-    
-    p {
-      margin-left: $pad;
-    }
-  }
-}
-
-
-
 .pdxri-item {
   @include grades;
   cursor: pointer;
-  font-family: $font !important;
   background: $list-bg;
+
+  &:hover {
+    background: #eef;
+  }
+
+  h3 {
+    float: right;
+    margin-left: 20px;
+  }
+  
+  p {
+    margin-left: $pad;
+  }
 }
 
 

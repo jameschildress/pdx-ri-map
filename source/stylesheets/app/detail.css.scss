@@ -50,7 +50,6 @@
 
 #pdxri-close {
   $size:   20px;
-  $weight: 2px;
   float:   right;
   display: block;
   width:   $size;
@@ -61,9 +60,9 @@
   &:before, &:after {
     content: " ";
     width:  $size;
-    height: $weight;
+    height: 1px;
     display: block;
-    background: $heading-color;
+    background: $link-color;
     position: absolute;
     left: 0;
     top: 8px;
@@ -80,5 +79,12 @@
   span {
     position: absolute;
     left: -9999px;
+  }
+  
+  &:hover {
+    &:before, &:after {
+      background: $link-hover-color;
+      height: 3px;
+    }
   }
 }

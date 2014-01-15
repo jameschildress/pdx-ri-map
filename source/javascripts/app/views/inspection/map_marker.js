@@ -10,7 +10,7 @@
       this.marker.setMap(App.map);
       google.maps.event.addListener(this.marker, 'click', function() {
         App.infoWindow.setContent(
-          new App.InspectionListItemView({ model: self.model }).render().$el[0]
+          new App.InspectionInfoWindowView({ model: self.model }).render().$el[0]
         );
         App.infoWindow.open(App.map, self.marker);
       });
