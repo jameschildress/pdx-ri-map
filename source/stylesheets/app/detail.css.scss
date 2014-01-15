@@ -1,3 +1,4 @@
+@import "compass";
 @import "variables";
 
 
@@ -44,4 +45,40 @@
     color: #633;
   }
   
+}
+
+
+#pdxri-close {
+  $size:   20px;
+  $weight: 3px;
+  float:   right;
+  display: block;
+  width:   $size;
+  height:  $size;
+  position: relative;
+  background: #fff;
+  
+  &:before, &:after {
+    content: " ";
+    width:  $size;
+    height: $weight;
+    display: block;
+    background: $heading-color;
+    position: absolute;
+    left: 0;
+    top: 8px;
+  }
+  
+  &:before {
+    @include rotate(45deg);
+  }
+
+  &:after {
+    @include rotate(135deg);
+  }
+  
+  span {
+    position: absolute;
+    left: -9999px;
+  }
 }

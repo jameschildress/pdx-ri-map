@@ -22,7 +22,7 @@
       if (App.location.latLng) {
         html += t('a',
           t('span', 'close'),
-          { id: 'pdxri-close', href: '#' });
+          { id: 'pdxri-close', href: '#', title: 'close' });
       }
       html += t('h2', this.model.escape('restaurantName'));
       html += t('p', 
