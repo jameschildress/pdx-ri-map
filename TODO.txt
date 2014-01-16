@@ -1,5 +1,3 @@
-App.location history for when closing detail view
-
 handle AJAX errors
 
 hide non-Portland area on map

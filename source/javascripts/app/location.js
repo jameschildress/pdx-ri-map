@@ -50,13 +50,13 @@
     // Call this after the collections have been loaded
     // Begins history-tracking for when closing a InspectionDetailsView
   , initialize: function() {
-      this.listenTo( App.Inspections , 'fetch' , this.updateHistory );
+      this.listenTo( App.Router , 'route:at' , this.updateHistory );
     }
     
   , historyLatLng: null
     
-  , updateHistory: function() {
-      this.historyLatLng = this.latLng;
+  , updateHistory: function(lat, lng) {
+      this.historyLatLng = new google.maps.LatLng(lat, lng);
       this.trigger('history', this.historyLatLng);
     }
     
