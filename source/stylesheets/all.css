@@ -8,5 +8,6 @@
  *= require app/controls
  *= require app/map
  *= require app/detail
+ *= require app/settings
 
 */
