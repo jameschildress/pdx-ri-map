@@ -22,28 +22,25 @@
       this.$areaButton   = this.$('#pdxri-area'  );
       this.$nearbyButton = this.$('#pdxri-nearby');
       
-      this.listenTo( this.collection, 'fetch'  , this.disableButtons     );
-      this.listenTo( App.location   , 'seek'   , this.disableButtons     );
-      this.listenTo( this.collection, 'filter' , this.enableNearbyButton );
-      this.listenTo( App.location   , 'change' , this.enableAreaButton   );
-      this.listenTo( App.settings   , 'change:searchRadius' , this.enableAreaButton );
+      this.listenTo( this.collection, 'fetch'  , this.disableButtons );
+      this.listenTo( App.location   , 'seek'   , this.disableButtons );
+      this.listenTo( this.collection, 'filter' , this.enableButtons  );
+      this.listenTo( App.location   , 'change' , this.enableButtons  );
+      this.listenTo( App.location   , 'error'  , this.enableButtons  );
     }
     
   , disableButtons: function(){
-      this.$areaButton.attr( 'disabled', true);
+      this.$areaButton.attr(  'disabled', true);
       this.$nearbyButton.attr('disabled', true);
     }
     
-  , enableAreaButton: function(){
+  , enableButtons: function(){
       if (App.location.latLng) {
         this.$areaButton.removeAttr('disabled');
       }
-    }
-
-  , enableNearbyButton: function(){
       this.$nearbyButton.removeAttr('disabled');
     }
-    
+
   , sortInspections: function(){
       this.collection.comparator = this.$sortMenu.val();
       this.collection.sort();
