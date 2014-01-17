@@ -15,7 +15,6 @@ $(function(){
   new App.InspectionsListView();
   new App.ViolationsListView();
   new App.InspectionsMapView();
-  new App.InspectionsCountView();
   new App.ControlsView();
   new App.AreaMapMarkerView();
   new App.MenuView();

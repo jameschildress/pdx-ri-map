@@ -52,7 +52,7 @@
         , strokeOpacity: 0.5
         , strokeWeight:  1
         , fillColor:     '#0077cc'
-        , fillOpacity:   0.2
+        , fillOpacity:   0.1
         }
       , icons: {
           height: 35
