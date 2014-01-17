@@ -5,7 +5,8 @@
 
   App.ViolationsListView = Backbone.View.extend({
   
-    el: '#pdxri-main'
+    tagName : 'div'
+  , id      : 'pdxri-inspection-details'
     
   , collection: App.Violations
   
@@ -19,11 +20,10 @@
         .empty()
         .removeClass('pending')
         .append(items);
-      return this;
     }
 
   , initialize: function() {
-      this.listenTo( this.collection , 'filter' , this.render  );
+      this.render();
     }
       
   });

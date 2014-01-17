@@ -5,7 +5,8 @@
 
   App.InspectionsListView = Backbone.View.extend({
   
-    el: '#pdxri-main'
+    tagName : 'div'
+  , id      : 'pdxri-inspections'
     
   , collection: App.Inspections
   
@@ -18,12 +19,11 @@
         .empty()
         .removeClass('pending')
         .append(items);
-      return this;
     }
 
   , initialize: function() {
-      this.listenTo( this.collection , 'filter' , this.render  );
-      this.listenTo( this.collection , 'sort'   , this.render  );
+      this.listenTo( this.collection , 'sort' , this.render );
+      this.render();
     }
       
   });
