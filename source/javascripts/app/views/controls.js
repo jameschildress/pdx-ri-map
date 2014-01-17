@@ -26,6 +26,7 @@
       this.listenTo( App.location   , 'seek'   , this.disableButtons     );
       this.listenTo( this.collection, 'filter' , this.enableNearbyButton );
       this.listenTo( App.location   , 'change' , this.enableAreaButton   );
+      this.listenTo( App.settings   , 'change:searchRadius' , this.enableAreaButton );
     }
     
   , disableButtons: function(){

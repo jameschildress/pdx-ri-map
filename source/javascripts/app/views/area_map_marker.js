@@ -18,7 +18,6 @@
       this.setRadius();
 
       this.listenTo( App.location    , 'change'               , this.render    );
-      this.listenTo( App.Inspections , 'fetch'                , this.hide      );
       this.listenTo( App.settings    , 'change:searchRadius'  , this.setRadius );
     }
     
