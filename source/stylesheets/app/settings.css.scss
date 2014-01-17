@@ -6,6 +6,10 @@
   border-bottom: 1px solid $list-item-border;
   background: #fff;
   
+  p {
+    margin-bottom: $pad;
+  }
+  
   h2 {
     text-align: center;
     padding: $pad;
@@ -19,6 +23,7 @@
   
   label {
     font-size: 14px;
+    font-weight: bold;
     color: $text-color;
   }
   

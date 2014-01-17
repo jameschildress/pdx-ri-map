@@ -10,11 +10,14 @@
   &:hover {
     background: #eef;
   }
-
+  
+  h2 {
+    color: $link-color;  
+  }
+  
   h3 {
     float: right;
     margin-left: 20px;
-    color: $link-color;
   }
   
   p {
