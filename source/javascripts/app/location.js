@@ -48,15 +48,27 @@
     
 
     // Call this after the collections have been loaded
-    // Begins history-tracking for when closing a InspectionDetailsView
   , initialize: function() {
-      this.listenTo( App.Router , 'route:at' , this.updateHistory );
+      // Location history for when closing a InspectionDetailsView
+      this.listenTo( App.Router , 'route:at' , this.updateHistory );      
+      this.listenTo( this       , 'found'    , this.updateHistory );      
+      // Map click event
+      google.maps.event.addListener(App.map, 'click', function(event){
+        App.location.set(event.latLng);   
+      });
     }
     
   , historyLatLng: null
     
-  , updateHistory: function(lat, lng) {
-      this.historyLatLng = new google.maps.LatLng(lat, lng);
+    // Accept either two floats or a single latLng object.
+  , updateHistory: function(latOrLatLng, lng) {
+      if (_.isUndefined(lng)) {
+        // Treat as a single latLng
+        this.historyLatLng = latOrLatLng;
+      } else {
+        // Treat as two numbers
+        this.historyLatLng = new google.maps.LatLng(latOrLatLng, lng);
+      }
       this.trigger('history', this.historyLatLng);
     }
     

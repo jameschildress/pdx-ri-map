@@ -8,7 +8,8 @@
     el: '#pdxri-main'
 
   , initialize: function() {
-      this.view = null;
+      this.view    = null;
+      this.mapView = null;
       
       this.listenTo( App.Inspections , 'fetch'  , this.pending           );
       this.listenTo( App.Violations  , 'fetch'  , this.pending           );
@@ -20,7 +21,7 @@
 
 
     
-  , render: function(view) {
+  , render: function(view, mapView) {
       // Remove the currently rendered view if one exists
       if (this.view) {
         this.view.remove();
@@ -32,27 +33,46 @@
         .empty()
         .removeClass('pending')
         .append(view.$el);
-    }
         
+      // Remove the currently rendered map view if one exists
+      if (this.mapView) {
+        this.mapView.removeMarkers();
+        this.mapView.remove();
+      }
+      
+      // Set and render the new map view if one is provided
+      if (mapView) {
+        mapView.render();
+        this.mapView = mapView;
+      }
+    }
+
+
+
   , pending: function() {
       this.$el
         .empty()
         .addClass('pending');
     }
     
-    
-    
-    
   , renderError: function(message) {
-      this.render( new App.ErrorMessageView({ message: message }) );
+      this.render(
+        new App.ErrorMessageView({ message: message })
+      );
     }
     
   , renderInspections: function() {
-      this.render( new App.InspectionsListView() );
+      this.render(
+        new App.InspectionsListView()
+      , new App.InspectionsMapView()
+      );
     }
 
   , renderViolations: function() {
-      this.render( new App.ViolationsListView() );
+      this.render(
+        new App.ViolationsListView()
+      , new App.ViolationMapView()
+      );
     }
   
   

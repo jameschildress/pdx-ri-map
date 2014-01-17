@@ -13,7 +13,6 @@ $(function(){
   
   
   new App.MainView();
-  new App.InspectionsMapView();
   new App.ControlsView();
   new App.AreaMapMarkerView();
   new App.MenuView();

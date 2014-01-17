@@ -10,17 +10,15 @@
   , initialize: function() {
       this.markers = [];
       this.bounds = App.config.map.bounds;
-                                     
-      this.listenTo( App.Router      , 'route'            , this.removeMarkers    );
-      this.listenTo( this.collection , 'filter'           , this.resetAndZoom     );
-      this.listenTo( this.collection , 'sort'             , this.resetMarkers     );
-      this.listenTo( App.events      , 'inspection:focus' , this.focusMarker      );
-      this.listenTo( App.events      , 'inspection:blur'  , this.blurMarker       );
-      this.listenTo( App.Violations  , 'filter'           , this.violationsMarker );
+
+      this.listenTo( this.collection , 'sort'             , this.resetMarkers );
+      this.listenTo( App.events      , 'inspection:focus' , this.focusMarker  );
+      this.listenTo( App.events      , 'inspection:blur'  , this.blurMarker   );
+    }
     
-      google.maps.event.addListener(App.map, 'click', function(event){
-        App.location.set(event.latLng);   
-      });
+  , render: function() {
+      this.resetAndZoom();
+      App.events.trigger('render', 'InspectionsMapView');
     }
   
   
@@ -68,18 +66,9 @@
       var index = this.collection.indexOf(inspection);
       this.markers[index].blur();
     }
-  
-  
-  
-  , violationsMarker: function() {
-      var inspection = App.Violations.inspection
-        , marker = new App.InspectionMapMarkerView({ model: inspection });
-      this.markers = [marker.render()];
-      App.map.panTo(inspection.latLng);
-    }
-    
-    
-    
+
+
+
   });
  
 }());
