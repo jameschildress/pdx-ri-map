@@ -8,7 +8,6 @@
     collection: App.Inspections
   
   , render: function() {
-      this.circle.setRadius(App.utils.milesToMeters(App.settings.searchRadius));
       this.circle.setCenter(App.location.latLng);
       this.circle.setMap(App.map); 
       return this;
@@ -16,15 +15,25 @@
     
   , initialize: function(options) {
       this.circle = new google.maps.Circle(App.config.map.circle);
+      this.setRadius();
 
-      this.listenTo( App.location    , 'change', this.render );
-      this.listenTo( App.location    , 'found' , this.render );
-      this.listenTo( App.location    , 'seek'  , this.hide   );
-      this.listenTo( this.collection , 'fetch' , this.hide   );
+      this.listenTo( App.location    , 'change'               , this.render    );
+      this.listenTo( App.Inspections , 'fetch'                , this.hide      );
+      this.listenTo( App.settings    , 'change:searchRadius'  , this.setRadius );
     }
     
-  , hide: function(){
-      this.circle.setMap(null);
+  , setRadius: function() {
+      this.circle.setRadius(
+        App.utils.milesToMeters(
+          App.settings.get('searchRadius')
+        )
+      );
+    }
+    
+  , hide: function() {
+      if (this.circle.getMap()) {
+        this.circle.setMap(null);  
+      }
     }
   
   });

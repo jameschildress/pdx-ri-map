@@ -26,6 +26,9 @@
       _.each(['nearby', 'about', 'help', 'settings'], function(route){
         self.listenTo( App.Router , 'route:' + route , function(){ self.onRouteTo(route) });        
       });
+
+      this.listenTo( App.settings , 'change:searchRadius'  , this.onSearchRadiusSet );
+      this.listenTo( App.settings , 'change:zoomToResults' , this.onZoomToResultsSet );
     }
 
 
@@ -87,6 +90,16 @@
 
   , onRouteTo: function(route) {
       console.debug("ROUTE:", route);
+    }
+    
+    
+    
+  , onSearchRadiusSet: function() {
+      console.debug("SETTING: searchRadius", App.settings.get('searchRadius'));
+    }
+
+  , onZoomToResultsSet: function() {
+      console.debug("SETTING: zoomToResults", App.settings.get('zoomToResults'));
     }
       
   });

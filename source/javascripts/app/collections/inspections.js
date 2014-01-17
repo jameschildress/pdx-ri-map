@@ -21,7 +21,7 @@
         , yearAgo    = new Date(now.getFullYear() - 1, now.getMonth(), now.getDate());
       return {
         limit:    App.config.proxy.maxResults
-      , distance: App.settings.searchRadius
+      , distance: App.settings.get('searchRadius')
       , to:       formatDate(tomorrow)
       , from:     formatDate(yearAgo)
       , lat:      latitude

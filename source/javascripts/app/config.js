@@ -25,6 +25,11 @@
       , span:  5  // percentage points per grade
       , max:   100
       }
+      
+    , settings: {
+        zoomToResults: true
+      , searchRadius:  0.5 // miles
+      }
     
     , map: {
         divID: 'pdxri-map'
@@ -50,13 +55,6 @@
         }
       }
     }
-    
-    
-    
-  , settings: {
-      zoomToResults: true
-    , searchRadius:  0.5 // miles
-    }    
     
   };
 

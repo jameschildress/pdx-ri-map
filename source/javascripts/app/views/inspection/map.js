@@ -38,7 +38,7 @@
     
   , resetAndZoom: function() {
       this.resetMarkers();
-      if (this.collection.length > 1 && App.settings.zoomToResults) {
+      if (this.collection.length > 1 && App.settings.get('zoomToResults')) {
         App.map.fitBounds(this.bounds);
       }
     }

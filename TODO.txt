@@ -1,3 +1,11 @@
+enable area search on radius change
+
+save settings to cookies
+
+
+
+
+
 handle AJAX errors
 
 hide non-Portland area on map

@@ -17,6 +17,8 @@
     
   , initialize: function() {
       var self = this;
+      
+      this.listenTo( App.settings , 'change:searchRadius' , this.updateRadiusIndicator )
     
       this.render();
     
@@ -25,23 +27,20 @@
       this.$radiusControl   = this.$el.find( '#pdxri-search-radius'           );
 
       // Set initial state of zoom control
-      this.$zoomControl.attr('checked', App.settings.zoomToResults);
+      this.$zoomControl.attr('checked', App.settings.get('zoomToResults'));
       
       // Set initial state of radius control
-      this.$radiusControl.val(App.settings.searchRadius);
+      this.$radiusControl.val(App.settings.get('searchRadius'));
       this.updateRadiusIndicator();
       
       // Set 'change' event for zoom control
       this.$zoomControl.on('change', function(){
-        App.settings.zoomToResults = !App.settings.zoomToResults;
-        console.log("SETTING CHANGED: zoom", App.settings.zoomToResults);
+        App.settings.set('zoomToResults', !App.settings.get('zoomToResults'));
       });
       
       // Set 'change' event for radius control
       this.$radiusControl.on('change', function(){
-        App.settings.searchRadius = parseFloat(self.$radiusControl.val());
-        self.updateRadiusIndicator();
-        console.log("SETTING CHANGED: radius", App.settings.searchRadius);
+        App.settings.set('searchRadius', parseFloat(self.$radiusControl.val()));
       });
       
     }
@@ -49,7 +48,7 @@
     
     
   , updateRadiusIndicator: function() {
-      var radius = App.settings.searchRadius;
+      var radius = App.settings.get('searchRadius');
       this.$radiusIndicator.text(radius + ' mile' + (radius == 1 ? '' : 's'));
     }
     
