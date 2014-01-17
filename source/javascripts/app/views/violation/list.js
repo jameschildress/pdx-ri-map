@@ -20,6 +20,7 @@
         .empty()
         .removeClass('pending')
         .append(items);
+      App.events.trigger('render', 'ViolationsListView')
     }
 
   , initialize: function() {

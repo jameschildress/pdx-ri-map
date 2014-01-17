@@ -8,6 +8,8 @@
     el: '#pdxri-main'
 
   , initialize: function() {
+      this.view = null;
+      
       this.listenTo( App.Inspections , 'fetch'  , this.pending           );
       this.listenTo( App.Violations  , 'fetch'  , this.pending           );
       this.listenTo( App.Inspections , 'filter' , this.renderInspections );
@@ -19,6 +21,13 @@
 
     
   , render: function(view) {
+      // Remove the currently rendered view if one exists
+      if (this.view) {
+        this.view.remove();
+      }
+      // Set the new view as the current view
+      this.view = view;
+      // Render the new view
       this.$el
         .empty()
         .removeClass('pending')

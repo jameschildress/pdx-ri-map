@@ -19,6 +19,7 @@
         .empty()
         .removeClass('pending')
         .append(items);
+      App.events.trigger('render', 'InspectionsListView')
     }
 
   , initialize: function() {

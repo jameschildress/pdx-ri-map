@@ -7,6 +7,8 @@
   
     initialize: function(options) {
       var self = this;
+
+      this.listenTo( App.events      , 'render'        , this.onRender            );
       
       this.listenTo( App.Violations  , 'reset'         , this.onViolationsReset   );
       this.listenTo( App.Violations  , 'fetch'         , this.onViolationsFetch   );                    
@@ -27,8 +29,14 @@
         self.listenTo( App.Router , 'route:' + route , function(){ self.onRouteTo(route) });        
       });
 
-      this.listenTo( App.settings , 'change:searchRadius'  , this.onSearchRadiusSet );
+      this.listenTo( App.settings , 'change:searchRadius'  , this.onSearchRadiusSet  );
       this.listenTo( App.settings , 'change:zoomToResults' , this.onZoomToResultsSet );
+    }
+  
+  
+  
+  , onRender: function(viewName) {
+      console.debug("RENDER:", viewName);
     }
 
 
