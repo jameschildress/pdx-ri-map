@@ -35,7 +35,9 @@
     }
     
   , enableAreaButton: function(){
-      this.$areaButton.removeAttr('disabled');
+      if (App.location.latLng) {
+        this.$areaButton.removeAttr('disabled');
+      }
     }
 
   , enableNearbyButton: function(){

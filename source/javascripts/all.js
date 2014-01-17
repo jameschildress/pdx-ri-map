@@ -1,4 +1,5 @@
 //= require vendor/jquery-min
+//= require vendor/jquery.cookie
 //= require vendor/underscore-min
 //= require vendor/backbone-min
 

@@ -7,6 +7,13 @@
     new google.maps.LatLng(45.4146, -122.8501)
   , new google.maps.LatLng(45.6667, -122.4476)
   );
+  
+  
+  
+  $.cookie.defaults = {
+    expires : 365
+  , path    : '/'
+  };
 
 
 
