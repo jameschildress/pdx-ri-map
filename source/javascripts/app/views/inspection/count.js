@@ -5,7 +5,8 @@
 
   App.InspectionsCountView = Backbone.View.extend({
   
-    el: '#pdxri-count'
+    tagName : 'div'
+  , id      : 'pdxri-count'
     
   , collection: App.Inspections
   
@@ -16,16 +17,10 @@
   
   , render: function() {
       this.$el.html(this.template());
-      return this;
     }
 
-  , pending: function() {
-      this.$el.empty();
-    }
-    
   , initialize: function() {
-      this.listenTo( this.collection , 'filter' , this.render  );
-      this.listenTo( App.Router      , 'route'  , this.pending );
+      this.render();
     }
   
   });

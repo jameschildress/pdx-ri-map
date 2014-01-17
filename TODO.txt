@@ -1,6 +1,4 @@
-save settings to cookies
-
-
+when sort is changed, only re-render list if it is currently displayed
 
 
 

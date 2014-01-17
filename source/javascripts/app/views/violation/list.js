@@ -13,7 +13,7 @@
       var view = new App.InspectionDetailView({ model: this.collection.inspection });
       var items = [view.render().$el];
       _.each(this.collection.models, function(model){
-        items.push(new App.ViolationListItemView({ model: model }).render().$el);
+        items.push(new App.ViolationListItemView({ model: model }).$el);
       });
       this.$el
         .empty()

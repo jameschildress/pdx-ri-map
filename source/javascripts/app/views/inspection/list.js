@@ -11,8 +11,9 @@
   
   , render: function() {
       var items = _.map(this.collection.models, function(model){
-        return new App.InspectionListItemView({ model: model }).render().$el;
+        return new App.InspectionListItemView({ model: model }).$el;
       });
+      items.push(new App.InspectionsCountView().$el);
       this.$el
         .empty()
         .removeClass('pending')
