@@ -23,14 +23,7 @@
     }
 
   , initialize: function() {
-      this.listenTo( this.collection , 'fetch' , this.pending );
       this.listenTo( this.collection , 'filter' , this.render  );
-    }
-      
-  , pending: function() {
-      this.$el
-        .empty()
-        .addClass('pending');
     }
       
   });

@@ -22,25 +22,8 @@
     }
 
   , initialize: function() {
-      this.listenTo( this.collection , 'fetch'  , this.pending );
-      this.listenTo( App.location    , 'seek'   , this.pending );
       this.listenTo( this.collection , 'filter' , this.render  );
       this.listenTo( this.collection , 'sort'   , this.render  );
-      this.listenTo( App.location    , 'error'  , this.error   );
-    }
-      
-  , pending: function() {
-      this.$el
-        .empty()
-        .addClass('pending');
-    }
-    
-  , error: function(message) {
-      var view = new App.ErrorMessageView({ message: message });
-      this.$el
-        .empty()
-        .removeClass('pending')
-        .append(view.render().$el);
     }
       
   });

@@ -12,6 +12,7 @@ $(function(){
   
   
   
+  new App.MainView();
   new App.InspectionsListView();
   new App.ViolationsListView();
   new App.InspectionsMapView();

@@ -20,6 +20,7 @@
     
   , initialize: function(options) {
       this.message = options.message;
+      this.render();
     }
   
   });
