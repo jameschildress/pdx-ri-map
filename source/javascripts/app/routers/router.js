@@ -16,15 +16,15 @@
     }
     
   , help: function() {
-      (new App.HelpView).render();
+      new App.HelpView();
     }
 
   , about: function() {
-      (new App.AboutView).render();
+      new App.AboutView();
     }
 
   , settings: function() {
-      (new App.SettingsView).render();
+      new App.SettingsView();
     }
 
   , at: function(lat, lng) {

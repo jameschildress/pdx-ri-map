@@ -19,7 +19,9 @@ $(function(){
   new App.ControlsView();
   new App.AreaMapMarkerView();
   new App.MenuView();
-  
+
+
+
   // TODO: FOR DEVELOPMENT ONLY
   new App.ConsoleView();
   
