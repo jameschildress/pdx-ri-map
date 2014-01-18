@@ -19,6 +19,13 @@
       font-size: 14px;
       color: #444;
       border-radius: 2px;
+      
+      &:disabled {
+        background: $header-bg;
+        color: #999;
+        border-color: #999;
+        cursor: default;
+      }
     }
   }
   

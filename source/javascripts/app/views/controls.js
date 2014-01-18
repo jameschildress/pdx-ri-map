@@ -10,17 +10,19 @@
   , collection: App.Inspections
   
   , events: {
-      'change #pdxri-sort' : 'sortInspections'
-    , 'click #pdxri-area'  : 'queryArea' 
-    , 'click #pdxri-nearby': 'queryNearby' 
+      'change #pdxri-sort'           : 'sortInspections'
+    , 'click  #pdxri-area'           : 'queryArea' 
+    , 'click  #pdxri-nearby'         : 'queryNearby'
+    , 'submit #pdxri-address-search' : 'queryAddress'
     }
     
-  , initialize: function(){
+  , initialize: function() {
       var self = this;
       
-      this.$sortMenu     = this.$('#pdxri-sort'  );
-      this.$areaButton   = this.$('#pdxri-area'  );
-      this.$nearbyButton = this.$('#pdxri-nearby');
+      this.$sortMenu     = this.$('#pdxri-sort'   );
+      this.$areaButton   = this.$('#pdxri-area'   );
+      this.$nearbyButton = this.$('#pdxri-nearby' );
+      this.$addressInput = this.$('#pdxri-address');
       
       this.listenTo( this.collection, 'fetch'  , this.disableButtons );
       this.listenTo( App.location   , 'seek'   , this.disableButtons );
@@ -29,24 +31,30 @@
       this.listenTo( App.location   , 'error'  , this.enableButtons  );
     }
     
-  , disableButtons: function(){
+    
+    
+  , disableButtons: function() {
       this.$areaButton.attr(  'disabled', true);
       this.$nearbyButton.attr('disabled', true);
+      this.$addressInput.attr('disabled', true);
     }
     
-  , enableButtons: function(){
+  , enableButtons: function() {
       if (App.location.latLng) {
         this.$areaButton.removeAttr('disabled');
       }
       this.$nearbyButton.removeAttr('disabled');
+      this.$addressInput.removeAttr('disabled');
     }
 
-  , sortInspections: function(){
+  , sortInspections: function() {
       this.collection.comparator = this.$sortMenu.val();
       this.collection.sort();
     }
   
-  , queryArea: function(){
+  
+  
+  , queryArea: function() {
       var latLng = App.location.latLng;
       App.Router.navigate(
         'at/' + latLng.lat() + '/' + latLng.lng()
@@ -54,8 +62,19 @@
       );
     }
     
-  , queryNearby: function(){
+  , queryNearby: function() {
       App.Router.navigate('nearby', { trigger: true });
+    }
+    
+  , queryAddress: function() {
+      App.location.geocode(this.$addressInput.val(), function(latLng) {
+        console.log("GEOCODE SUCCESS:", latLng.lat(), latLng.lng());
+        App.Router.navigate(
+          'at/' + latLng.lat() + '/' + latLng.lng()
+        , { trigger: true } 
+        );
+      });
+      return false;
     }
         
   });

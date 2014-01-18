@@ -6,15 +6,15 @@
   App.location = {
     
     latLng: null
-
-  , detect: function(onSuccess) {
+    
+  , detect: function(callback) {
       var self = this;
       self.trigger('seek');
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(location){
           self.latLng = new google.maps.LatLng(location.coords.latitude, location.coords.longitude);
           self.trigger('found', self.latLng);
-          onSuccess(self.latLng);
+          callback(self.latLng);
         }, self.error);
       } else {
         self.trigger('error', 'This browser does not support geolocation.');
@@ -70,6 +70,28 @@
         this.historyLatLng = new google.maps.LatLng(latOrLatLng, lng);
       }
       this.trigger('history', this.historyLatLng);
+    }
+  
+  
+  
+  , geocoder: new google.maps.Geocoder()
+
+  , geocode: function(address, callback) {
+      var self = this;
+      
+      this.geocoder.geocode({
+        address : address
+      , bounds  : App.config.map.bounds
+      },function(results) {
+          if (results.length > 0) {
+            self.latLng = results[0].geometry.location;
+            self.trigger('found', self.latLng);
+            callback(self.latLng);
+          } else {
+            self.trigger('error', 'The address could not be found in Portland.');
+          }
+      });
+      this.trigger('seek');
     }
     
   }
