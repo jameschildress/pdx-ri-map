@@ -12,10 +12,17 @@
       self.trigger('seek');
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(location){
-          self.latLng = new google.maps.LatLng(location.coords.latitude, location.coords.longitude);
-          self.trigger('found', self.latLng);
-          callback(self.latLng);
-        }, self.error);
+          var latLng = new google.maps.LatLng(location.coords.latitude, location.coords.longitude);
+          if (App.config.map.bounds.contains(latLng)) {
+            // If current location is within allowed bounds
+            self.latLng = latLng;
+            self.trigger('found', latLng);
+            callback(latLng);            
+          } else {
+            // If current location is outside of allowed bounds
+            App.events.trigger('error', 'Your current location is outside of the Portland area.');
+          }
+        }, self.detectionError);
       } else {
         App.events.trigger('error', 'This browser does not support geolocation.');
       }
@@ -28,7 +35,7 @@
       }
     }
     
-  , error: function(err) {
+  , detectionError: function(err) {
       var msg = '';
       switch(err.code) {
         case err.PERMISSION_DENIED:
