@@ -35,6 +35,7 @@
         data: this.queryParams(latitude, longitude)
       , dataType: App.config.proxy.dataType
       , reset: true
+      , error: App.utils.ajaxError
       });
     }
     

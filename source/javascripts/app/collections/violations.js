@@ -30,6 +30,7 @@
         data: this.queryParams(inspectionID)
       , dataType: App.config.proxy.dataType
       , reset: true
+      , error: App.utils.ajaxError
       });
     }
     

@@ -79,18 +79,28 @@
   , geocode: function(address, callback) {
       var self = this;
       
-      this.geocoder.geocode({
-        address : address
-      , bounds  : App.config.map.bounds
-      },function(results) {
+      this.geocoder.geocode(
+        {
+          address : address
+        , bounds  : App.config.map.bounds
+        }
+      , function(results) {
+          // If there is an error connecting to the geocoder service
+          if (!results) {
+            App.utils.ajaxError();
+            return;
+          }
+          // If one or more matching addresses are found
           if (results.length > 0) {
             self.latLng = results[0].geometry.location;
             self.trigger('found', self.latLng);
             callback(self.latLng);
+          // If no addresses are found
           } else {
             App.events.trigger('error', 'The address could not be found in Portland.');
           }
-      });
+        }
+      );
       this.trigger('seek');
     }
     

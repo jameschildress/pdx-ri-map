@@ -30,6 +30,13 @@
       return html;
     }
     
+  , ajaxError: function() {
+      App.events.trigger(
+        'error'
+      , 'There was a problem fetching data. Your internet connection may be down.'
+      );
+    }
+    
   , milesToMeters: function(miles) {
       return miles / 0.00062137;
     }
