@@ -30,11 +30,11 @@
 .pdxri-error {
   background: #fff3f3;
   padding: $pad;
-  border-bottom: 1px solid $list-item-border;
+  border-bottom: 1px solid $border;
   text-align: center;
   
   p {
-    font-size: 14px;
+    font-size: $text-size;
     color: #b00;
     font-weight: 500;
   }

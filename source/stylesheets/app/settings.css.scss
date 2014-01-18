@@ -3,7 +3,7 @@
 
 
 #pdxri-settings {
-  border-bottom: 1px solid $list-item-border;
+  border-bottom: 1px solid $border;
   background: #fff;
   
   p {
@@ -17,12 +17,12 @@
   }
   
   .pdxri-settings-control {
-    border-top: 1px dashed $list-item-border;
+    border-top: 1px dashed $border;
     padding: $pad;
   }
   
   label {
-    font-size: 14px;
+    font-size: $text-size;
     font-weight: bold;
     color: $text-color;
   }

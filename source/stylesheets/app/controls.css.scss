@@ -4,8 +4,8 @@
 
 #pdxri-controls {
   padding: $pad $pad $pad 0;
-  border-bottom: 1px solid $list-item-border;
-  border-top: 1px solid $list-item-border;
+  border-bottom: 1px solid $border;
+  border-top: 1px solid $border;
   
   #pdxri-address-search {
     margin: 0 0 $pad $pad;
@@ -16,7 +16,7 @@
       width: 100%;
       padding: 5px;
       box-shadow: 0 1px 0 #fff;
-      font-size: 14px;
+      font-size: $text-size;
       color: #444;
       border-radius: 2px;
       

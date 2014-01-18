@@ -1,26 +1,23 @@
-$max-mobile-width: 767px;
-$list-width:       300px;
-$pad:              10px ;
-
-$title-color:      #777 ;
-$text-color:       #666 ;
-$link-color:       #07c ;
-$link-hover-color: #09d ;
+$max-mobile-width: 767px   ;
+$list-width:       300px   ;
+$pad:              10px    ;
+                          
+$title-color:      #777    ;
+$text-color:       #666    ;
+$link-color:       #07c    ;
+$link-hover-color: #09d    ;
                    
 $header-bg:        #f5f5f5 ;
-$list-bg:          #fff ;
+$list-bg:          #fff    ;
+                           
+$border:           #ccc    ;
+$map-border:       #888    ;
 
-$list-item-border: #ccc ;
-$map-border:       #888 ;
-
-$active-item-color:    $link-color ;
-$active-text-color:    #fff ;
-$active-heading-color: #fff ;
-
-$font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-$heading-font-size: 16px;
-$text-margin: 0 0 3px 0;
-$line-height: 1.2;
+$font:             'Helvetica Neue', Helvetica, Arial, sans-serif;
+$heading-size:     16px    ;
+$text-margin:  0 0 3px 0   ;
+$text-size:        14px    ;
+$line-height:      1.2     ;
 
 
 
