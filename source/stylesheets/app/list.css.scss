@@ -28,12 +28,13 @@
 
 
 .pdxri-error {
-  background: #fee;
+  background: #fff3f3;
   padding: $pad;
   border-bottom: 1px solid $list-item-border;
   text-align: center;
   
   p {
+    font-size: 14px;
     color: #b00;
     font-weight: 500;
   }

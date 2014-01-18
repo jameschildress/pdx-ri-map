@@ -28,7 +28,7 @@
       this.listenTo( App.location   , 'seek'   , this.disableButtons );
       this.listenTo( this.collection, 'filter' , this.enableButtons  );
       this.listenTo( App.location   , 'change' , this.enableButtons  );
-      this.listenTo( App.location   , 'error'  , this.enableButtons  );
+      this.listenTo( App.events     , 'error'  , this.enableButtons  );
     }
     
     
@@ -68,7 +68,6 @@
     
   , queryAddress: function() {
       App.location.geocode(this.$addressInput.val(), function(latLng) {
-        console.log("GEOCODE SUCCESS:", latLng.lat(), latLng.lng());
         App.Router.navigate(
           'at/' + latLng.lat() + '/' + latLng.lng()
         , { trigger: true } 

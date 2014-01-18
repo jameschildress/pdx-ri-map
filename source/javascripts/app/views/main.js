@@ -16,7 +16,7 @@
       this.listenTo( App.Inspections , 'filter' , this.renderInspections );
       this.listenTo( App.Violations  , 'filter' , this.renderViolations  );
       this.listenTo( App.location    , 'seek'   , this.pending           );
-      this.listenTo( App.location    , 'error'  , this.renderError       );
+      this.listenTo( App.events      , 'error'  , this.renderError       );
     }
 
 

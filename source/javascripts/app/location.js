@@ -17,7 +17,7 @@
           callback(self.latLng);
         }, self.error);
       } else {
-        self.trigger('error', 'This browser does not support geolocation.');
+        App.events.trigger('error', 'This browser does not support geolocation.');
       }
     }
     
@@ -42,7 +42,7 @@
           msg = 'An error occurred while getting your current location.'
           break;
       }
-      App.location.trigger('error', msg);
+      App.events.trigger('error', msg);
     }
     
     
@@ -88,7 +88,7 @@
             self.trigger('found', self.latLng);
             callback(self.latLng);
           } else {
-            self.trigger('error', 'The address could not be found in Portland.');
+            App.events.trigger('error', 'The address could not be found in Portland.');
           }
       });
       this.trigger('seek');

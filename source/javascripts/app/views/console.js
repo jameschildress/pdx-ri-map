@@ -10,6 +10,8 @@
 
       this.listenTo( App.events      , 'render'        , this.onRender            );
       
+      this.listenTo( App.events      , 'error'         , this.onError             );
+
       this.listenTo( App.Violations  , 'reset'         , this.onViolationsReset   );
       this.listenTo( App.Violations  , 'fetch'         , this.onViolationsFetch   );                    
                                                        
@@ -19,7 +21,6 @@
       this.listenTo( App.Inspections , 'sort'          , this.onInspectionsSort   );
                                                        
       this.listenTo( App.location    , 'found'         , this.onLocationFound     );
-      this.listenTo( App.location    , 'error'         , this.onLocationError     );
       this.listenTo( App.location    , 'history'       , this.onLocationHistory   );
                                                        
       this.listenTo( App.Router      , 'route:at'      , this.onRouteToAt         );
@@ -37,6 +38,10 @@
   
   , onRender: function(viewName) {
       console.debug("RENDER:", viewName);
+    }
+  
+  , onError: function(message) {
+      console.warn("ERROR:", message);
     }
 
 
@@ -80,10 +85,6 @@
 
   , onLocationHistory: function(latLng) {
       console.log("LOCATION HISTORY:", latLng.lat(), latLng.lng());
-    }
-  
-  , onLocationError: function(message) {
-      console.warn("LOCATION ERROR:", message);
     }
 
 
