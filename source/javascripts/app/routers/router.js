@@ -12,8 +12,7 @@
     , "settings"     : "settings"
     , "at/:lat/:lng" : "at"
     , "view/:id"     : "view"
-    , "nearby"       : "nearby"
-    }
+  }
     
   , help: function() {
       new App.HelpView();
@@ -35,12 +34,6 @@
       App.Violations.fetchByInspectionID(id);
     }
     
-  , nearby: function() {
-      App.location.detect(function(latLng){
-        App.Inspections.fetchByLocation(latLng.lat(), latLng.lng());
-      });
-    }
-
   });
   
   

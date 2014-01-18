@@ -1,17 +1,11 @@
-remove #nearby route and treat like address search
-
-  also raise error if location is outside of bounds
+raise error if location is outside of bounds
   
   
   
   
-
-handle AJAX errors
 
 hide non-Portland area on map
 
 help
 
 about
-
-settings

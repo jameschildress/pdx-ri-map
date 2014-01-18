@@ -26,7 +26,7 @@
       this.listenTo( App.Router      , 'route:at'      , this.onRouteToAt         );
       this.listenTo( App.Router      , 'route:view'    , this.onRouteToView       );
       
-      _.each(['nearby', 'about', 'help', 'settings'], function(route){
+      _.each(['about', 'help', 'settings'], function(route){
         self.listenTo( App.Router , 'route:' + route , function(){ self.onRouteTo(route) });        
       });
 

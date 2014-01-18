@@ -54,24 +54,30 @@
   
   
   
-  , queryArea: function() {
-      var latLng = App.location.latLng;
+  , navigate: function(latLng) {
       App.Router.navigate(
         'at/' + latLng.lat() + '/' + latLng.lng()
       , { trigger: true } 
       );
     }
+
+  , queryArea: function() {
+      this.navigate(App.location.latLng);
+      return false;
+    }
     
   , queryNearby: function() {
-      App.Router.navigate('nearby', { trigger: true });
+      var self = this;
+      App.location.detect(function(latLng){
+        self.navigate(latLng);
+      });
+      return false;
     }
     
   , queryAddress: function() {
+      var self = this;
       App.location.geocode(this.$addressInput.val(), function(latLng) {
-        App.Router.navigate(
-          'at/' + latLng.lat() + '/' + latLng.lng()
-        , { trigger: true } 
-        );
+        self.navigate(latLng);
       });
       return false;
     }
