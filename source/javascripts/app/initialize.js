@@ -8,6 +8,16 @@ $(function(){
   , App.config.map.options
   );
   
+  var overlay = new google.maps.KmlLayer({
+    clickable: false
+  , map: App.map
+  , preserveViewport: true
+  , suppressInfoWindows: true
+  , url: App.config.map.overlayURL
+  });
+  
+  console.log(overlay);
+  
   App.infoWindow = new google.maps.InfoWindow();
   
   

@@ -41,6 +41,7 @@
     , map: {
         divID: 'pdxri-map'
       , bounds: bounds
+      , overlayURL: 'TODO'
       , options: {
           zoom:    12
         , minZoom: 11

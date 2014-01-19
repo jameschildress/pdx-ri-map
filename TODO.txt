@@ -1,11 +1,3 @@
-raise error if location is outside of bounds
-  
-  
-  
-  
+upload KML to public source
 
-hide non-Portland area on map
-
-help
-
-about
+cross-browser testing
