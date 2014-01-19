@@ -41,7 +41,7 @@
     , map: {
         divID: 'pdxri-map'
       , bounds: bounds
-      , overlayURL: 'TODO'
+      , overlayURL: 'http://pdxri.childr.es/overlay.xml'
       , options: {
           zoom:    12
         , minZoom: 11
@@ -50,10 +50,10 @@
         }
       , circle: {
           strokeColor:   '#0077cc'
-        , strokeOpacity: 0.5
+        , strokeOpacity: 1
         , strokeWeight:  1
         , fillColor:     '#0077cc'
-        , fillOpacity:   0.1
+        , fillOpacity:   0.05
         }
       , icons: {
           height: 35
