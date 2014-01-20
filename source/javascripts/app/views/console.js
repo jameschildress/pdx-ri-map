@@ -37,50 +37,50 @@
   
   
   , onRender: function(viewName) {
-      console.debug("RENDER:", viewName);
+      console.log("RENDER:", viewName);
     }
   
   , onError: function(message) {
-      console.warn("ERROR:", message);
+      console.log("ERROR:", message);
     }
 
 
     
   , onViolationsReset: function(Violations) {
-      console.debug("RESET: Violations");
+      console.log("RESET: Violations");
       console.dir(Violations.inspection);    
       console.dir(Violations.models);    
     }
 
   , onViolationsFetch: function(Violations) {
-      console.debug("FETCH: Violations");
+      console.log("FETCH: Violations");
     }
   
   
   
   , onInspectionsReset: function(Inspections) {
-      console.debug("RESET: Inspections");
+      console.log("RESET: Inspections");
       console.dir(Inspections.models);
     }
 
   , onInspectionsFilter: function(Inspections) {
-      console.debug("FILTER: Inspections");
+      console.log("FILTER: Inspections");
       console.dir(Inspections.models);
     }
 
   , onInspectionsSort: function(Inspections) {
-      console.debug("SORT: Inspections BY:", Inspections.comparator);
+      console.log("SORT: Inspections BY:", Inspections.comparator);
       console.dir(Inspections.models);
     }
 
   , onInspectionsFetch: function(Inspections) {
-      console.debug("FETCH: Inspections");
+      console.log("FETCH: Inspections");
     }
   
   
   
   , onLocationFound: function(latLng) {
-      console.debug("LOCATION:", latLng.lat(), latLng.lng());
+      console.log("LOCATION:", latLng.lat(), latLng.lng());
     }
 
   , onLocationHistory: function(latLng) {
@@ -90,25 +90,25 @@
 
 
   , onRouteToAt: function(lat, lng) {
-      console.debug("ROUTE: at/:lat/:lng", lat, lng);
+      console.log("ROUTE: at/:lat/:lng", lat, lng);
     }
 
   , onRouteToView: function(id) {
-      console.debug("ROUTE: view/:id", id);
+      console.log("ROUTE: view/:id", id);
     }
 
   , onRouteTo: function(route) {
-      console.debug("ROUTE:", route);
+      console.log("ROUTE:", route);
     }
     
     
     
   , onSearchRadiusSet: function() {
-      console.debug("SETTING: searchRadius", App.settings.get('searchRadius'));
+      console.log("SETTING: searchRadius", App.settings.get('searchRadius'));
     }
 
   , onZoomToResultsSet: function() {
-      console.debug("SETTING: zoomToResults", App.settings.get('zoomToResults'));
+      console.log("SETTING: zoomToResults", App.settings.get('zoomToResults'));
     }
       
   });
