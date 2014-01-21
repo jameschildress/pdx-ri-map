@@ -29,8 +29,8 @@ $(function(){
 
 
 
-  // TODO: FOR DEVELOPMENT ONLY
-  new App.ConsoleView();
+  // FOR DEVELOPMENT ONLY
+  // new App.ConsoleView();
   
   App.location.initialize();
   
