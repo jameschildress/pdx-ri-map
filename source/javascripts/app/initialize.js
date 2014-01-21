@@ -15,9 +15,7 @@ $(function(){
   , suppressInfoWindows: true
   , url: App.config.map.overlayURL
   });
-  
-  console.log(overlay);
-  
+    
   App.infoWindow = new google.maps.InfoWindow();
   
   
