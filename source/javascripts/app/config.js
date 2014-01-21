@@ -22,7 +22,7 @@
     config: {
       
       proxy: {
-        url: 'http://pdxri.childr.es/'
+        url: 'http://pdxri-proxy.childr.es/'
       , dataType: 'jsonp'
       , maxResults: 500
       }
@@ -41,7 +41,7 @@
     , map: {
         divID: 'pdxri-map'
       , bounds: bounds
-      , overlayURL: 'http://pdxri.childr.es/overlay.xml'
+      , overlayURL: 'http://pdxri-proxy.childr.es/overlay.xml'
       , options: {
           zoom:    12
         , minZoom: 11
