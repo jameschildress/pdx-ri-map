@@ -3,20 +3,11 @@
 
 
 
-.pdxri-detail, .pdxri-violation {
-  padding: $pad;
-  border-bottom: 1px dashed $border;
-
-  p {
-    margin-left: $pad;
-  }  
-}
-
-
-
 .pdxri-detail {
   @include grades;
   background: #fff;
+  padding: $pad;
+  border-bottom: 1px dashed $border;
 
   h2, h3 {
     color: #333;
@@ -25,26 +16,27 @@
   h3 {
     margin-top: $pad;
   }
+
+  p {
+    margin-left: $pad;
+  }  
 }
 
 
 
 .pdxri-violation {
-  background: #fffff5;
+  background: #fff;
+  padding: $pad;
+  border-bottom: 1px dashed $border;
   
   &:last-child {
     border-bottom-style: solid;
   }
-  
-  h4 {
-    color: #944;
-  }
 
   p {
     text-transform: lowercase;
-    color: #633;
+    color: #944;
   }
-  
 }
 
 

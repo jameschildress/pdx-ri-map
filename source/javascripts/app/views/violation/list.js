@@ -13,6 +13,12 @@
   , render: function() {
       var view = new App.InspectionDetailView({ model: this.collection.inspection });
       var items = [view.render().$el];
+      
+      // TODO:
+      // - append inspection history heading
+      // - append inspection history items
+      // - append violations list heading
+      
       _.each(this.collection.models, function(model){
         items.push(new App.ViolationListItemView({ model: model }).$el);
       });

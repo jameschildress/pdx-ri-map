@@ -10,10 +10,7 @@
   , className: 'pdxri-violation'
   
   , template: function() {
-      var html = '';
-      html += '<h4>' + this.model.escape('lawID')   + '</h4>' ;
-      html += '<p>'  + this.model.escape('comment') + '</p>'  ;
-      return html;
+      return '<p>' + this.model.escape('comment') + '</p>' ;
     }
     
   , render: function() {

@@ -32,18 +32,6 @@
         ', OR ' +
         this.model.escape('zipCode')
       );
-      html += t('h3',
-        'Latest Inspection: ' +
-        t('span', this.model.escape('score') + '%', { class: 'grade'})
-      );
-      html += t('p',
-        'Inspected on ' +
-        App.utils.monthNames[date.getMonth()] +
-        ' ' +
-        date.getDate() +
-        ', ' +
-        date.getFullYear()
-      );
       return html;
     }
     
