@@ -5,6 +5,13 @@
 #pdxri-header {
   padding: $pad;
   
+  img {
+    display: block;
+    margin: auto auto $pad;
+    width: 100px;
+    height: 100px;
+  }
+  
   h1 {
     color: $title-color;
   }
